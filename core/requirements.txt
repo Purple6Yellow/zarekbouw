@@ -1,0 +1,7 @@
+django ~=3.2.20
+
+pip install --upgrade pip
+pip install django mysqlclient 
+pip install Pillow
+Pip install django-import-export
+pip install PyMuPDF 

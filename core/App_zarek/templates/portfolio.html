@@ -1,0 +1,84 @@
+{% extends 'basis.html' %}
+{% load static %}
+{% load i18n %}
+
+<!-----HEAD---->
+{% block styles %}<style>
+
+
+.afbeelding{padding:2% 2% 2% 2%;}
+.vorm-rand{background-color: rgba(85, 12, 12, 0.974); 
+    height:100%; aspect-ratio: 1/1;
+    display: flex; align-items: left; justify-content: center;}
+.vorm{
+    height:96%; aspect-ratio: 1/1; margin:2% 0 0 0;}
+.vorm img{width:100%;height:100%; object-fit:cover;}
+.vorm-titel{padding: 5% 0% 5% 0%; font-weight: bold; text-align: center;background-color: inherit;height:10%;}
+
+.orde{background-color: inherit;} /* anders foto's door elkaar */
+</style>{% endblock %}
+<!---//HEAD---->
+<!---------------------------------------BODY------------------------------------------------------------------------------------------->
+<!----HEADER------>
+{% block header %}
+<div class = "row">
+    <div class="col-12">
+       <div class = "titelA">  Portfolio</div>
+       <div sclass = "titelB">  </div>
+    </div>
+</div>
+
+<!-----dropdown om taal te wisselen-------->
+<div class = "row">
+    <div class="col-12">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        <select id="lang-select">
+            {% for lang_code, lang_name in LANGUAGES %}
+            <option value="{{ lang_code }}"
+            {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+            {{ lang_name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+<!---//--dropdown om taal te wisselen-------->
+{% endblock header %}
+<!--//HEADER------>
+<!--------BANNER----->
+{% block banner %}
+<div> <img src="{% static 'img/logo.png' %}" alt="Bedrijfslogo"></div> 
+{% endblock %}
+<!-----//---BANNER--->
+<!---------------------------------------------------------------------------------------------------------------------------------->
+<!----------SECTION----->
+{% block section1 %}
+<div class = "row" style="width:50%;margin: 0 0 0 25%;">
+    {% for foli in folis %}
+    <div class = "col-6" style="padding: 0% 0% 0% 0%;">
+        <div class = "afbeelding">
+            <div class = "vorm-rand">
+                <div class="vorm">
+                    <a href="/portfolio_detail.html/{{ foli.pk }}"> <img src="{{ foli.afbeeld1.url }}" alt="in construction"> </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class = "col-6">
+        <div class = "afbeelding">
+            <div class = "vorm-rand">
+                <div class="vorm">
+                    <a href="{% url 'DetailFoli_url' foli.pk %}" TARGET = "_blank"> <img src="{{ foli.afbeeld2.url }}" alt="in construction"> </a>
+                </div>
+            </div>
+        </div>
+    </div>  
+<div class ="vorm-titel"> {{ foli.naam }}</div>
+
+{% endfor %}
+</div>
+</div>
+{% endblock %}
+<!-----//---SECTION--->

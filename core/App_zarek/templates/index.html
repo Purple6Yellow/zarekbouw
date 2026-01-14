@@ -1,0 +1,110 @@
+{% extends 'basis.html' %}
+{% load static %}
+{% load i18n %}
+
+<!----HEAD---->
+{% block styles %}<style>
+
+    a{color: rgba(85, 12, 12, 0.974);text-decoration: none;}
+    
+
+</style>{% endblock %}
+<!---//HEAD---->
+<!---------------------------------------BODY------------------------------------------------------------------------------------------->
+<!----HEADER------>
+{% block header %}
+<div class = "row">
+    <div class="col-12">
+       <div class = "titelA">  Zarek Bouw </div>
+       <div sclass = "titelB">  van fundering tot afwerking </div>
+    </div>
+</div>
+
+<!-----dropdown om taal te wisselen-------->
+<div class = "row">
+    <div class="col-12">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        <select id="lang-select">
+            {% for lang_code, lang_name in LANGUAGES %}
+            <option value="{{ lang_code }}"
+            {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+            {{ lang_name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+<!---//--dropdown om taal te wisselen-------->
+{% endblock header %}
+<!--//HEADER------>
+
+<!--------BANNER----->
+{% block banner %}
+<div> <img src="{% static 'img/logo.png' %}" alt="Bedrijfslogo"></div> 
+{% endblock %}
+<!-----//---BANNER--->
+
+<!----SECTION------>
+{% block section1 %}
+<div class = "row">
+    <div class="col-12">
+
+<em> {% trans  "Ben je geen klusser?" %}   </em> <br><br>
+
+{% blocktrans %}
+
+    <em>Ben je een klusser, maar heb je er geen tijd voor of ben je het overzicht kwijt? <br><br>
+        Of zoek je simpelweg iemand die het voor je kan doen? <br><br>
+    </em>
+    
+       Vraag dan een <a href = "/contact.html"> offerte </a> aan. <br><br>
+
+
+       Bij Zarek Bouw is weinig te veel.<br><br>
+
+       Wellicht zien we elkaar! 
+    </div>
+</div>
+{% endblocktrans %}
+{% endblock %}
+<!--//SECTION------>
+
+
+<!----SECTION------>
+{% block section2 %}
+<div class = "row">
+    <div class="col-9"> <br> </div>
+
+    <div class="col-2">       <button class = "btn"> <a href ="/contact.html"> Offerte aanvragen </a>   </button> </div>
+</div>
+<!---->
+<div class = "row">
+    <div class="col-12 "> 
+        <div> <img style = "width: 10%" src="{% static 'img/trap.png' %}" alt=""></div> 
+    </div>
+</div>
+{% endblock %}
+<!--//SECTION------>
+<!----JAVASCRIPT------>
+{% block javascript %}
+<script>
+    console.log("Index")
+    const select = document.getElementById("lang-select");
+
+    select.addEventListener("change",function(){
+        console.log("EventListener gestart via html bestand")
+        fetch("{% url 'set_language' %}", {                                       // {url ... } dit mag niet in het js.bestand
+                method: "POST",                                                   // accepteert alleen POST 
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",          // Content-Type: django verwacht form-data, geen JSON
+                    "X-CSRFToken": "{{ csrf_token }}"                             // X-CSRFToken: verplicht bij POST, {{ csrf_token }} werkt alleen in templates 
+                },
+                body: "language=" + this.value + "&next={{ request.paht }}"       //next waar Django je naartoe terugstuurt 
+        })
+        .then(() => location.reload());                                           //nodig omdat fetch niet automatisch herlaadt, na reload nieuwe taal zichtbaar
+    });
+</script>
+{% endblock %}
+<!----//JAVASCRIPT------>
+

@@ -1,0 +1,96 @@
+<script src = "{% static 'js/eigenontwerp/vertaling.js' %}" type= "text/javascript"></script>
+
+
+
+
+<!-----dropdown om taal te wisselen-------->
+{% get_current_language as CURRENT_LANGUAGE %}
+{% get_available_languages as LANGUAGES %}
+Current language: {{ CURRENT_LANGUAGE }}
+<select id="lang-select"
+        data-set-language-url="{% url 'set_language' %}"
+        data-next="{{ request.path }}"
+        data-csrf="{{ csrf_token }}">
+
+    {% for lang_code, lang_name in LANGUAGES %}
+        <option value="{{ lang_code }}"
+            {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+            {{ lang_name }}
+        </option>
+    {% endfor %}
+</select>
+<!--//---dropdown om taal te wisselen-------->
+
+<!----JAVASCRIPT------>
+{% block javascript %}
+<script>
+console.log("fetch")
+fetch("{% url 'set_language' %}", {
+    method: "POST"});
+</script>
+{% endblock %}
+<!----//JAVASCRIPT------>
+
+
+<!-----dropdown om taal te wisselen-------->
+    {% get_current_language as LANGUAGE_CODE %}
+    {% get_available_languages as LANGUAGES %}
+<select id="lang-select">
+    {% for lang_code, lang_name in LANGUAGES %}
+        <option value="{{ lang_code }}"
+            {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+            {{ lang_name }}
+        </option>
+    {% endfor %}
+</select>
+<!---//--dropdown om taal te wisselen-------->
+
+{% url "set_language" %}           
+<p>Test URL: {% url 'set_language' %}</p>
+
+
+
+<!----JAVASCRIPT------>
+{% block javascript %}
+<script>
+console.log("fetch")
+fetch("{% url 'set_language' %}", {
+    method: "POST"
+ 
+});
+</script>
+
+
+<script>
+document.getElementById("lang-select").addEventListener("change", function () {
+    console.log('script in html bestand')
+    fetch("{% url 'set_language' %}", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "X-CSRFToken": "{{ csrf_token }}"
+        },
+        body: "language=" + this.value + "&next={{ request.path }}"
+    }).then(() => location.reload());
+});
+</script>
+
+
+{% endblock %}
+<!----//JAVASCRIPT------>
+
+vertaling.js
+
+const select = document.getElementById("lang-select");
+
+select.addEventListener("change",function(){
+    console.log("vertaling.js geactiveerd")
+    fetch("{% url 'set_language' %}", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "X-CSRFToken": select.dataset.csrf
+            },
+            body: "language=" + this.value + "&next=" + select.dataset.next
+        }).then(() => location.reload());
+});

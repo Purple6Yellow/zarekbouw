@@ -1,0 +1,75 @@
+{% extends 'basis.html' %}
+{% load static %}
+{% load i18n  %}
+<!----HEAD---->
+{% block styles %}<style>
+
+
+
+</style>{% endblock %}
+<!---//HEAD---->
+<!---------------------------------------BODY------------------------------------------------------------------------------------------->
+<!----HEADER------>
+{% block header %}
+<div class = "row">
+    <div class="col-12">
+       <div class = "titelA">  Contact</div>
+       <div sclass = "titelB">  </div>
+    </div>
+</div>
+
+<!-----dropdown om taal te wisselen-------->
+<div class = "row">
+    <div class="col-12">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        <select id="lang-select">
+            {% for lang_code, lang_name in LANGUAGES %}
+            <option value="{{ lang_code }}"
+            {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+            {{ lang_name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+<!---//--dropdown om taal te wisselen-------->
+{% endblock header %}
+<!--//HEADER------>
+
+<!--------BANNER----->
+{% block banner %}
+<div> <img src="{% static 'img/logo.png' %}" alt="Bedrijfslogo"></div> 
+{% endblock %}
+<!-----//---BANNER--->
+
+<!----------SECTION----->
+{% block section1 %}
+<form action="" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+  <div class=""> </div>
+<div class = "formulier">
+<!----> 
+    <div class ="row">
+    <div class = "col-12"> {{ contact_form.naam }} </div>
+    </div>
+    <!----> 
+    <div class ="row">
+    <div class = "col-12"> {{ contact_form.email }} </div>
+    </div>
+    <!----> 
+    <!----> 
+    <div class ="row">
+    <div class = "col-12"> {{ contact_form.bericht }} </div>
+    </div>
+    <!----> 
+
+    <!---->
+    <div class="row">
+    <button type ="submit" name = "submitted" class = "button_formulier" id="" value = "true"> Verzenden </button>
+    </div>
+</div>
+</form>
+{% endblock %}
+<!-----//---SECTION----->
+
