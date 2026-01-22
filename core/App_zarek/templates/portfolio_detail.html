@@ -1,0 +1,124 @@
+{% extends 'basis.html' %}
+{% load static %}
+
+<!-----HEAD---->
+{% block styles %}<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slider {
+  position: fixed;
+  inset: 0;
+  background: black;
+}
+
+.slider img {
+  position: absolute;
+  inset: 0;
+  width: 100dvw;
+  height: 100dvh;
+  object-fit: cover;     /* vult scherm netjes */
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  border-radius: 10px 10px 10px 10px;margin: 0% 0 0 0;
+}
+
+.slider img.active {
+  opacity: 1;
+}
+
+
+
+</style>{% endblock %}
+<!---//HEAD---->
+<!---------------------------------------BODY------------------------------------------------------------------------------------------->
+{% block menu %}
+{% endblock %}
+
+<!----------SECTION----->
+{% block header %}
+<div class="">  
+    <div class = "row">
+        <div class = "col-12">
+            {{ image_urls|json_script:"image-data" }}  
+            <a href = "{% url 'OverzichtFoli_url' %}"> 
+            <div class = "slider" id = "slideshow"> 
+                {% if foli_detail.afbeeld1 %}
+                <img src="{{ foli_detail.afbeeld1.url }}"  id ="img1" class = "active">
+                <img src="{{ foli_detail.afbeeld2.url }}"  id ="img2" >
+                {% else %}
+                    Geen afbeeldingen
+                {% endif %}
+            </div> 
+            </a>
+        </div>
+    </div>
+</div>
+<!---->
+{% endblock %}
+
+
+{% block javascript %}
+<script id="image-data" type="application/json"></script> 
+<script> 
+   const images = JSON.parse(
+    document.getElementById("image-data").textContent);
+
+    //DEBUG 
+      // if (!images.length) {
+      //console.warn("Geen afbeeldingen gevonden");}
+      //console.log(typeof images);
+      //console.log(Array.isArray(images));
+      //console.log("Images = " + images);
+      // als raw leeg is >> django probleem, anders JSon 
+      //const raw = document.getElementById("image-data").textContent;
+      //console.log("RAW:", raw);
+    //DEBUG 
+
+    const imageUrls = images.map(img => `/media/${img}`);
+    //const imageUrls = images;
+    imageUrls[0]
+
+    let index = 0;
+
+    const imgA = document.getElementById("img1");
+    const imgB = document.getElementById("img2");
+
+    //console.log("staat er nog iets? ")
+    imgA.src = images[0];
+    imgA.classList.add("active");
+
+    let current = imgA;
+    let next = imgB;
+
+    function nextImage() {
+    index = (index + 1) % images.length;
+
+    next.src = images[index];
+
+    // cross-fade overlap
+    next.classList.add("active");
+    current.classList.remove("active");
+
+    // swap
+    [current, next] = [next, current];
+    }
+
+    // automatisch afspelen
+    setInterval(nextImage, 4000);
+</script>
+{% endblock %}
+
+
+
+
+

@@ -5,4 +5,3 @@ from .models import *
 class Portfolio(admin.ModelAdmin):
     list_display =("naam",)
     list_filter = ("naam",)
-    pass

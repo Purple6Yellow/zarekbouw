@@ -5,6 +5,7 @@
 .col-1{width:8.33%;}
 .col-2{width:16.66%;}
 .col-4{width:33.33%;}
+.col-5{width:41.66%;}
 .col-6{width:50%;}
 .col-9{width:66.64%;}
 .col-10{width:83.3%;}
@@ -31,6 +32,9 @@ iframe{width: 100%;height:400px;}
 /* ---INDEX-----------laptop--------------------*/
 .btn{background-color:  rgba(129, 112, 112, 0.974); width:100%;height:50px;border-radius:10px;}
 /* -//INDEX-----------laptop--------------------*/
+/* ---PORTFOLIO---------laptop--------------------*/
+.vorm-titel{font-size:60px; color: rgba(85, 12, 12, 0.974); padding: 0% 0% 5% 0%; text-align: center;background-color: inherit;height:15%;}
+/* -//PORTFOLIO---------laptop--------------------*/
 /* ---CONTACT---------laptop--------------------*/
 .formulier{width:60%; margin: 0 0 0 20%;padding: 3% 0 3% 0; background-color:inherit;}
 /* via forms.py */

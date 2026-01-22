@@ -4,7 +4,8 @@ from .models import *
 ######## mail verzenden #########
 from django.core.mail import EmailMessage
 from django.views.generic import ListView, DetailView
-
+from django.shortcuts import render ### slideshow portfolio_detail
+from django.db.models.fields.files import ImageField
 
 # ALGEMEEN
 def index_view(request):
@@ -15,15 +16,44 @@ def index_view(request):
 class OverzichtFoli(ListView):
     model = Portfolio
 
+    template_name = "portfolio.html"
+    context_object_name = "folis"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        qs = context ["object_list"]
+        context["image_urls"] = list(qs.values_list("afbeeld1", flat = True))
+
+        return context
+
 class DetailFoli(DetailView):
     model = Portfolio
-    template_name = 'portfolio_detail.html'
+    context_object_name = "foli_detail"
+    template_name = "portfolio_detail.html"
 
-def foli(request):
-    folis = Portfolio.objects.all
-    return render(request,'portfolio.html', {'folis': folis})
-### // PORTFOLIO -- ### 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        foli_detail = self.object
 
+        image_urls = []
+        
+        for field in foli_detail._meta.fields: # generiek voor meerdere foto's
+          print(field.name, field.get_internal_type(), type(field))
+          if isinstance(field, ImageField):
+            image = field.value_from_object(foli_detail)
+            if image:
+              image_urls.append(image.url)
+
+        print("IMAGE URLS:", image_urls)  # 👈 DEBUG
+        context["image_urls"] = image_urls
+        return context
+
+
+       # print(foli_detail)          # laat __str__ zien
+       # print(foli_detail.id)       # of andere velden
+       # print(foli_detail.afbeeld1) # check of image bestaat
+### -- PORTFOLIO -- ### 
 
 
 ### CONTACTFORMULIER ###
@@ -53,3 +83,4 @@ def contact_view (request):
     pass
   return render(request, 'contact.html', {'contact_form':  contact_form})  
 ### //CONTACTFORMULIER ###
+

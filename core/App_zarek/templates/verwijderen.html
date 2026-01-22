@@ -94,3 +94,47 @@ select.addEventListener("change",function(){
             body: "language=" + this.value + "&next=" + select.dataset.next
         }).then(() => location.reload());
 });
+
+<!----VIEWS PY------>
+
+###
+class DetailFoli(DetailView):
+    model = Portfolio
+    template_name = "portfolio_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context["image_urls"] = list(
+            self.object.folies.values_list("image", flat=True)
+        )
+
+        return context
+
+def foli(request):
+    folis = Portfolio.objects.order_by('-created_by')
+    print (folis)
+    return render(request,'portfolio.html', {'folis': folis})
+
+<!----URLS PY------>
+       path('portfolio_detail.html/<int:pk>/', DetailFoli.as_view(), name = 'DetailFoli_url'),
+
+
+
+<!----OUDE SLIDER JSON JAVASCRIPT------>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const images = JSON.parse(
+    document.getElementById("image-data").textContent
+  );
+
+  const slider = document.getElementById("slider");
+
+  images.forEach((url) => {
+    const img = document.createElement("img");
+    img.src = url;
+    img.classList.add("slide");
+    slider.appendChild(img);
+  });
+});
+</script>

@@ -8,9 +8,9 @@ urlpatterns = [
     ### DEFENITIEF### 
     path('index.html/', index_view),
     path('contact.html/', contact_view),
-    path('portfolio.html/', foli),
     path('portfolio.html/', OverzichtFoli.as_view(), name = 'OverzichtFoli_url'),
-    path('portfolio_detail.html/<int:pk>/', DetailFoli.as_view(), name = 'DetailFoli_url'),
+    path("portfolio_detail.html/<int:pk>/", DetailFoli.as_view(), name="DetailFoli_url"),  # detailpagina
+ 
 ### // KUNST -- ### 
     path("i18n/setlang/", set_language, name = "set_language"), #internationale vertaling
 
