@@ -6,9 +6,12 @@ from django.conf.urls.i18n import set_language
 
 urlpatterns = [
     ### DEFENITIEF### 
-    path('index.html/', index_view),
+    path("index.html/", FoliCardView.as_view(), name="CardFoli.url"),
+    path('index.html/', index_view),    
+    path('diensten.html/', diensten_view),
+
     path('contact.html/', contact_view),
-    path('portfolio.html/', OverzichtFoli.as_view(), name = 'OverzichtFoli_url'),
+    path('portfolio.html/', FoliListView.as_view(), name = 'OverzichtFoli_url'),
     path("portfolio_detail.html/<int:pk>/", DetailFoli.as_view(), name="DetailFoli_url"),  # detailpagina
  
 ### // KUNST -- ### 

@@ -1,0 +1,142 @@
+{% extends 'basis.html' %}
+{% load static %}
+{% load i18n  %}
+<!----HEAD---->
+{% block styles %}<style>
+
+.bannerblock{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+
+    position: absolute;
+    width: 207px;
+    height: 70px;
+    left: 7px;
+    top: 5px;
+
+    background: #FFFFFF;
+    border-radius: 50px;}
+
+.bannerblock img{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    left: 0;
+    top: 0px;}
+
+.sectionblockmenu{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 16px;
+    gap: 10px;
+
+    width: 102px;
+    height: 32px;
+
+    background: linear-gradient(91.21deg, #850305 20.69%, #990507 56.38%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+
+    /* Inside auto layout */
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+}
+
+
+
+
+
+
+
+/**/
+.col-12{background-color: inherit;}
+.achtergrond{max-height: 200px;}
+
+</style>{% endblock %}
+<!---//HEAD---->
+<!---------------------------------------BODY------------------------------------------------------------------------------------------->
+
+<!--------BANNER----->
+{% block banner%}
+    <div> <img src="{% static 'img/logo.png' %}" alt="Bedrijfslogo"></div> 
+
+  
+{% endblock %}
+<!-----//---BANNER--->
+
+<!----------SECTION----->
+     {% block menu %}
+      
+     {% endblock %}
+<!----------SECTION----->
+
+
+
+
+
+<!----HEADER------>
+{% block header %}
+<div class = "row">
+    <div class="col-12 achtergrond">
+        
+        <div class = "titelA">  Contact</div>
+        <div sclass = "titelB">  </div>
+    </div>
+</div>
+
+<!-----dropdown om taal te wisselen-------->
+<div class = "row">
+    <div class="col-12">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        <select id="lang-select">
+            {% for lang_code, lang_name in LANGUAGES %}
+            <option value="{{ lang_code }}"
+            {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+            {{ lang_name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+<!---//--dropdown om taal te wisselen-------->
+{% endblock %}
+<!--//HEADER------>
+
+
+<!----------SECTION----->
+{% block section1 %}
+<form action="" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+  <div class=""> </div>
+<div class = "formulier">
+<!----> 
+    <div class ="row">
+    <div class = "col-12"> {{ contact_form.naam }} </div>
+    </div>
+    <!----> 
+    <div class ="row">
+    <div class = "col-12"> {{ contact_form.email }} </div>
+    </div>
+    <!----> 
+    <!----> 
+    <div class ="row">
+    <div class = "col-12"> {{ contact_form.bericht }} </div>
+    </div>
+    <!----> 
+
+    <!---->
+    <div class="row">
+    <button type ="submit" name = "submitted" class = "button_formulier" id="" value = "true"> Verzenden </button>
+    </div>
+</div>
+</form>
+{% endblock %}
+<!-----//---SECTION----->
+

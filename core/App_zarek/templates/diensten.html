@@ -1,0 +1,94 @@
+{% extends 'basis.html' %}
+{% load static %}
+{% load i18n %}
+<!----HEAD---->
+{% block styles %}
+<style>
+.home-image1{background-image: url('../../static/img/dienst_1.jpeg');}
+.home-image2{background-image: url('../../static/img/dienst_2.jpeg');}
+.home-image3{background-image: url('../../static/img/dienst_3.jpeg');}
+.home-image4{background-image: url('../../static/img/dienst_4.jpeg');}
+.home-image5{background-image: url('../../static/img/dienst_5.jpeg');}
+.section3{display:none;}
+/* ---DIENSTEN-----------laptop--------------------*/
+
+.full-height2{min-height:320vh;}
+</style>
+{% endblock %}
+<!---//HEAD---->
+<!---------------------------------------BODY------------------------------------------------------------------------------------------->
+<!----SECTION------>
+ {% block section0 %}  
+        <div class = "tekst-Z" style = "margin: 2% 0 10% 0;">Onze diensten</div>
+  {% endblock %}   
+<!--//SECTION------>
+<!----SECTION------>
+ {% block section1 %}   
+<!---->
+<div class = "container full-height2">
+    <div class = "row2 h-25">
+        <div class = "col-4 home"><div class = "home-image1"></div>
+        </div>
+        <div class = "col-8 home">
+            <div class = "tekst-A">Nieuwbouw</div>
+            <div class = "tekst-B"> Droom je van een nieuwe woning, bedrijfspand of veranda? 
+                Wij realiseren complete nieuwbouwprojecten op maat. 
+                Van fundering tot afwerking nemen wij alles uit handen en zorgen we voor een soepel bouwproces.  
+            </div>
+        </div>
+    </div> 
+<!---->
+    <div class = "row2 h-25">
+        <div class = "col-8 home">
+            <div class = "tekst-A">Verbouwing & renovatie</div>
+            <div class = "tekst-B"> Wil je jouw woning moderniseren of anders indelen? 
+                Wij helpen je met slimme oplossingen die passen bij jouw wensen én budget.
+                Van kleine aanpassingen tot totaalrenovaties.   
+            </div>
+        </div>
+        <div class = "col-4 home"><div class = "home-image2"></div>
+        </div>
+    </div> 
+<!---->
+    <div class = "row2 h-25">
+        <div class = "col-4 home"><div class = "home-image3"></div>
+        </div>
+        <div class = "col-8 home">
+            <div class = "tekst-A">Aanbouw & uitbouw</div>
+            <div class = "tekst-B"> Meer ruimte nodig? Met een aanbouw, uitbouw of dakopbouw creëer je extra leefruimte én verhoog je de waarde van je woning. 
+                Wij zorgen dat de uitbreiding perfect aansluit bij de bestaande bouw.  
+            </div>
+        </div>
+    </div> 
+<!---->
+    <div class = "row2 h-25">
+        <div class = "col-8 home">
+            <div class = "tekst-A">Onderhoud & herstel</div>
+            <div class = "tekst-B"> Goed onderhoud voorkomt problemen. 
+                Wij voeren zowel periodiek onderhoud als reparaties vakkundig uit, 
+                zodat uw woning of pand in topconditie blijft.  
+            </div>
+        </div>
+         <div class = "col-4 home"><div class = "home-image4"></div>
+        </div>
+    </div> 
+<!---->
+    <div class = "row2 h-25">
+        <div class = "col-4 home"><div class = "home-image5"></div>
+        </div>
+        <div class = "col-8 home">
+            <div class = "tekst-A">Verduurzaming</div>
+            <div class = "tekst-B"> Je woning energiezuiniger maken? Wij adviseren en realiseren duurzame oplossingen die 
+                zorgen voor meer comfort en lagere energiekosten.  
+            </div>
+        </div>
+    </div> 
+</div>
+ {% endblock %}   
+<!--//SECTION------>
+<!----SECTION------>
+{% block section2 %}   
+
+{% endblock %}   
+<!--//SECTION------>
+  

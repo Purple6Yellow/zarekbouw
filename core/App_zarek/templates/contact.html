@@ -1,76 +1,66 @@
 {% extends 'basis.html' %}
 {% load static %}
-{% load i18n  %}
-<!----HEAD---->
-{% block styles %}<style>
 
-
-
-</style>{% endblock %}
+<!-----HEAD---->
+{% block styles %}
+<style>
+.section1{display:none;}
+.container_contact{width:60%; height: 80%; margin: 0% 0 0 20%;background-color:inherit; padding: 10% 0 0 0;}
+</style>
+{% endblock %}
 <!---//HEAD---->
 <!---------------------------------------BODY------------------------------------------------------------------------------------------->
-<!----HEADER------>
-{% block header %}
-<div class = "row">
-    <div class="col-12">
-    <div background> <img src="{% static 'img/achtergrond-zwart.jpg' %}"> </div>
-       <div class = "titelA">  Contact</div>
-       <div sclass = "titelB">  </div>
+<!----SECTION------>
+ {% block section0 %}  
+        <div class = "tekst-Z" style = "margin: 2% 0 10% 0;">Stuur ons een bericht </div>
+  {% endblock %}   
+<!--//SECTION------>
+
+<!----SECTION------>
+{% block section1 %}  
+{% endblock %}   
+<!--//SECTION------>
+<!-------SECTION---->
+ {% block section3 %}
+<div class = "">
+<div class = "container_contact">
+    <div class = "tekst-A1"  style="text-align: center;"> Kunnen we je helpen? <span style="color:#990507">Wij staan voor je klaar. </span></div>
+    <div class = "tekst-B"> Heeft u bouwplannen of wilt u een vrijblijvende offerte aanvragen? 
+        Neem vandaag nog contact met ons op. <strong> Zarek Bouw </strong> staat klaar om uw project vakkundig te realiseren.</div>
+
+    <!----> 
+    <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class=""> </div>
+    <div class = "formulier">
+    <!----> 
+        <div class ="row">
+            <div class = "col-5" style = "margin: 0% 7.7% 0 0%;"> {{ contact_form.naam }} </div>
+            <div class = "col-5" style = "margin: 0 0 0 7.7%;"> {{ contact_form.email }}  </div>
+        </div>
+        <!----> 
+        <!----> 
+        <div class ="row">
+        <div class = "col-12"> {{ contact_form.bericht }} </div>
+        </div>
+        <!----> 
+        <!---->
+        <div class="row">
+                <a href = ""> <div class ="btn_index1" style="margin: 3% 0 3% 100%;"> Verzenden </div> </a>
     </div>
+    </div>
+    </form>
+
 </div>
+</div> 
+ {% endblock %}  
 
-<!-----dropdown om taal te wisselen-------->
-<div class = "row">
-    <div class="col-12">
-        {% get_current_language as LANGUAGE_CODE %}
-        {% get_available_languages as LANGUAGES %}
-        <select id="lang-select">
-            {% for lang_code, lang_name in LANGUAGES %}
-            <option value="{{ lang_code }}"
-            {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
-            {{ lang_name }}
-            </option>
-            {% endfor %}
-        </select>
-    </div>
-</div>
-<!---//--dropdown om taal te wisselen-------->
-{% endblock header %}
-<!--//HEADER------>
+<!-----//SECTION---->
 
-<!--------BANNER----->
-{% block banner %}
-<div> <img src="{% static 'img/logo.png' %}" alt="Bedrijfslogo"></div> 
-{% endblock %}
-<!-----//---BANNER--->
 
-<!----------SECTION----->
-{% block section1 %}
-<form action="" method="POST" enctype="multipart/form-data">
-{% csrf_token %}
-  <div class=""> </div>
-<div class = "formulier">
-<!----> 
-    <div class ="row">
-    <div class = "col-12"> {{ contact_form.naam }} </div>
-    </div>
-    <!----> 
-    <div class ="row">
-    <div class = "col-12"> {{ contact_form.email }} </div>
-    </div>
-    <!----> 
-    <!----> 
-    <div class ="row">
-    <div class = "col-12"> {{ contact_form.bericht }} </div>
-    </div>
-    <!----> 
 
-    <!---->
-    <div class="row">
-    <button type ="submit" name = "submitted" class = "button_formulier" id="" value = "true"> Verzenden </button>
-    </div>
-</div>
-</form>
-{% endblock %}
-<!-----//---SECTION----->
+
+
+
+
 

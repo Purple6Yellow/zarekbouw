@@ -4,61 +4,47 @@
 <!-----HEAD---->
 {% block styles %}<style>
 
+/* ---PORTFOLIO---------laptop--------------------*/
 
+.dienst{display:flex;flex-direction:column;background-color:inherit;overflow:hidden;max-height:300px;}
+.port1{background-color:inherit;width:98%; margin:0 2% 0 0; height:50%;border-radius:40px 0 0 0;}
+.port2{background-color:inherit;width:98%; margin:0 0% 2% 2%; height:50%;border-radius:0px 0 40px 0px;}
 
+.dienst img{width:100%;height:100%;object-fit:cover;object-position: right center;}
+
+/* -//PORTFOLIO---------laptop--------------------*/
+.h-25{background-color:inherit;}
 
 </style>{% endblock %}
 <!---//HEAD---->
 <!---------------------------------------BODY------------------------------------------------------------------------------------------->
-<!----HEADER------>
-{% block header %}
-<div class = "row">
-    <div class="col-12">
-       <div class = "titelA">  Portfolio</div>
-       <div sclass = "titelB">  Sinds 10 jaar ben ik voor mezelf begonnen. Het begon met daken repareren. Daarna badkamers. Op deze pagina laat ik wat werkzaamheden zien. Van hoe het was tot 
-        wat het is geworden.  </div>
-    </div>
-</div>
-{% endblock header %}
-<!--//HEADER------>
-<!--------BANNER----->
-{% block banner %}
-<div> <img src="{% static 'img/logo.png' %}" alt="Bedrijfslogo"></div> 
-{% endblock %}
-<!-----//---BANNER--->
-<!---------------------------------------------------------------------------------------------------------------------------------->
 
-<!----------SECTION----->
+
+<!----SECTION------>
+ {% block section0 %}  
+        <div class = "tekst-Z" style = "margin: 2% 0 10% 0;">Impressie van onze projecten</div>
+  {% endblock %}   
+<!--//SECTION------>
+<!----SECTION------>
+{% block section4 %}
+{% endblock %}   
+<!--//SECTION------>
+<!----SECTION------>
 {% block section1 %}
+<!---->
+ {% for foli in folis %}
+<div class = "container">
 
-<div class = "row" >
-    {% for foli in folis %}
-    <div class ="vorm-titel"> {{ foli.naam }}</div>
-    <div class = "col-6" style="padding: 0% 0% 0% 0%;">
-        <div class = "afbeelding">
-            <div class = "vorm-rand">
-                <div class="vorm">
-                    <a href="{% url 'DetailFoli_url' foli.pk %}"> <img src="{{ foli.afbeeld1.url }}" alt="in construction"> </a>
-                </div>
-            </div>
+    <div class = "row2">
+        <div class = "col-6 dienst port1">
+             <a href="{% url 'DetailFoli_url' foli.pk %}"> <img src="{{ foli.afbeeld1.url }}" alt="in construction"> </a>
+        </div>
+
+        <div class = "col-6 dienst port2">
+            <a href="{% url 'DetailFoli_url' foli.pk %}"> <img src="{{ foli.afbeeld2.url }}" alt="in construction"> </a>
         </div>
     </div>
-
-    <div class = "col-6 ">
-        <div class = "afbeelding">
-            <div class = "vorm-rand">
-                <div class="vorm">
-                    <a href="{% url 'DetailFoli_url' foli.pk %}" TARGET = "_blank"> <img src="{{ foli.afbeeld2.url }}" alt="in construction"> </a>
-                </div>
-            </div>
-        </div>
-    </div>  
-    <div class ="vorm-titel"> ----------------</div>
-
-{% endfor %}
 </div>
-
+{% endfor %}
 {% endblock %}
-<!-----//---SECTION--->
-
-
+<!--//SECTION------>

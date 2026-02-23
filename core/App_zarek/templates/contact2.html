@@ -1,0 +1,246 @@
+{% extends 'basis.html' %}
+{% load static %}
+{% load i18n  %}
+<!----HEAD---->
+{% block styles %}<style>
+.sectionblockmenu{
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(90deg, #4A4B5A 84.62%, #9EA0C0 100%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    }
+.menu-container{}
+.menulaptop{}
+.menulaptop li
+.menulaptop{
+position: absolute;
+width: 207px;
+height: 70px;
+left: 7px;
+top: 5px;
+}
+
+
+
+/**/
+.col-12{background-color: inherit;}
+.achtergrond{max-height: 200px;}
+.headerblock{background-image:url("../../static/img/achtergrond-tegels.jpg");opacity: 0.8;z-index:300;}
+
+.menuLaptop {background-image:url("../../img/achtergrond-zwart.jpg");max-height: 200px;background-color:inherit; background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;}
+</style>{% endblock %}
+<!---//HEAD---->
+<!---------------------------------------BODY------------------------------------------------------------------------------------------->
+ <div background> <img src="{% static 'img/achtergrond-tegels.jpg' %}" style="max-height: 100px;width: 100%;"> sdfsd </div>
+<!--------BANNER----->
+{% block banner%}
+<div background> <img src="{% static 'img/achtergrond-tegels.jpg' %}" style="max-height: 100px;width: 100%;"> </div>    
+<div> <img src="{% static 'img/logo.png' %}" alt="Bedrijfslogo"></div> 
+{% endblock %}
+<!-----//---BANNER--->
+
+<!----HEADER------>
+{% block header %}
+<div class = "row">
+    <div class="col-12 achtergrond">
+        
+        <div class = "titelA">  Contact</div>
+        <div sclass = "titelB">  </div>
+    </div>
+</div>
+
+<!-----dropdown om taal te wisselen-------->
+<div class = "row">
+    <div class="col-12">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        <select id="lang-select">
+            {% for lang_code, lang_name in LANGUAGES %}
+            <option value="{{ lang_code }}"
+            {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+            {{ lang_name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+<!---//--dropdown om taal te wisselen-------->
+{% endblock %}
+<!--//HEADER------>
+<!----------SECTION----->
+     {% block menu %}
+<!----------SECTION----->
+
+<!----------SECTION----->
+{% block section1 %}
+<form action="" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+  <div class=""> </div>
+<div class = "formulier">
+<!----> 
+    <div class ="row">
+    <div class = "col-12"> {{ contact_form.naam }} </div>
+    </div>
+    <!----> 
+    <div class ="row">
+    <div class = "col-12"> {{ contact_form.email }} </div>
+    </div>
+    <!----> 
+    <!----> 
+    <div class ="row">
+    <div class = "col-12"> {{ contact_form.bericht }} </div>
+    </div>
+    <!----> 
+
+    <!---->
+    <div class="row">
+    <button type ="submit" name = "submitted" class = "button_formulier" id="" value = "true"> Verzenden </button>
+    </div>
+</div>
+</form>
+{% endblock %}
+<!-----//---SECTION----->
+
+<!----SECTION------>
+{% block section234 %}   
+<div class="carousel">
+  <div class="track">
+    <div class="item">Tekst 1</div>
+    <div class="item">Tekst 2</div>
+    <div class="item">Tekst 3</div>
+
+    <!-- duplicaat voor infinite loop -->
+    <div class="item">Tekst 1</div>
+    <div class="item">Tekst 2</div>
+    <div class="item">Tekst 3</div>
+  </div>
+</div>
+
+{% endblock %}   
+<!--//SECTION------>
+
+
+<!----SECTION------>
+{% block section2 %}   
+<div class="carousel">
+  <div class="track">
+    <div class="item">“Zarek Bouw voert al jarenlang onderhoudswerkzaamheden uit voor 
+            Stichting Behoud Waardevol Erfgoed, van funderingsherstel tot schilderwerk. 
+            We zijn ontzettend blij met de resulaten en de samenwerking” <br> <br> - Sebastiaan Verspuij -  </div>
+    <div class="item"> “Onze oude badkamer is geheel vernieuwd door Zarek Bouw. Daar zijn we super blij mee
+                De eigenaar werkt fijn samen en denkt creatief mee” <br><br> <br> - Violette Kamper - </div>
+    <div class="item">   “Ik ben heel tevreden met mijn nieuwe keuken. Communcitie & samenwerking was zeer goed. 
+                Zarek Bouw denkt graag mee met de oplossingen 
+                ” <br><br> <br> - France de Bieville -</div>
+
+    <!-- duplicaat voor infinite loop -->
+    <div class="item">      “Zarek Bouw voert al jarenlang onderhoudswerkzaamheden uit voor 
+            Stichting Behoud Waardevol Erfgoed, van funderingsherstel tot schilderwerk. 
+            We zijn ontzettend blij met de resulaten en de samenwerking” <br> <br> - Sebastiaan Verspuij -  </div>
+    <div class="item">      “Onze oude badkamer is geheel vernieuwd door Zarek Bouw. Daar zijn we super blij mee
+                De eigenaar werkt fijn samen en denkt creatief mee” <br><br> <br> - Violette Kamper - </div>
+    <div class="item">   “Ik ben heel tevreden met mijn nieuwe keuken. Communcitie & samenwerking was zeer goed. 
+                Zarek Bouw denkt graag mee met de oplossingen 
+                ” <br><br> <br> - France de Bieville -</div>
+  </div>
+</div>
+
+    
+{% endblock %}   
+<!--//SECTION------>
+
+<!----SECTION------>
+
+
+ {% block section %}   
+    <div class = "container_blog">
+        <div class = "track">
+        <div class = "blog center">
+            <div class = "tekst-C">
+            “Zarek Bouw voert al jarenlang onderhoudswerkzaamheden uit voor 
+            Stichting Behoud Waardevol Erfgoed, van funderingsherstel tot schilderwerk. 
+            We zijn ontzettend blij met de resulaten en de samenwerking” <br> <br> - Sebastiaan Verspuij -  
+            </div>
+        </div>
+
+        <div class = "blog right">
+            <div class = "tekst-C">
+                “Onze oude badkamer is geheel vernieuwd door Zarek Bouw. Daar zijn we super blij mee
+                De eigenaar werkt fijn samen en denkt creatief mee” <br><br> <br> - Violette Kamper -  
+            </div>
+        </div>
+
+        <div class = "blog right">
+            <div class = "tekst-C">
+                “Ik ben heel tevreden met mijn nieuwe keuken. Communcitie & samenwerking was zeer goed. 
+                Zarek Bouw denkt graag mee met de oplossingen 
+                ” <br><br> <br> - France de Bieville -  
+            </div>
+        </div>
+<!-- gedupliceerd-->
+     <div class = "blog center">
+            <div class = "tekst-C">
+            “Zarek Bouw voert al jarenlang onderhoudswerkzaamheden uit voor 
+            Stichting Behoud Waardevol Erfgoed, van funderingsherstel tot schilderwerk. 
+            We zijn ontzettend blij met de resulaten en de samenwerking” <br> <br> - Sebastiaan Verspuij -  
+            </div>
+        </div>
+
+        <div class = "blog right">
+            <div class = "tekst-C">
+                “Onze oude badkamer is geheel vernieuwd door Zarek Bouw. Daar zijn we super blij mee
+                De eigenaar werkt fijn samen en denkt creatief mee” <br><br> <br> - Violette Kamper -  
+            </div>
+        </div>
+
+        <div class = "blog right">
+            <div class = "tekst-C">
+                “Ik ben heel tevreden met mijn nieuwe keuken. Communcitie & samenwerking was zeer goed. 
+                Zarek Bouw denkt graag mee met de oplossingen 
+                ” <br><br> <br> - France de Bieville -  
+            </div>
+        </div>
+
+
+     </div>
+    </div> 
+  {% endblock %}   
+<!--//SECTION------>
+
+
+<!-------JAVASCRIPT---->
+{% block javascript %}
+
+<script>
+const track = document.querySelector('.track');
+const items = document.querySelectorAll('.item');
+
+const slideWidth = 500;
+const originalCount = items.length / 2; // omdat we dupliceren
+let index = 0;
+
+function moveSlide() {
+  index++;
+  track.style.transition = "transform 0.8s ease-in-out";
+  track.style.transform = `translateX(-${index * slideWidth}px)`;
+
+  // Zodra we bij de kopie zijn, resetten zonder animatie
+  if (index === originalCount) {
+    setTimeout(() => {
+      track.style.transition = "none";
+      track.style.transform = `translateX(0px)`;
+      index = 0;
+    }, 5000);
+  }
+}
+
+setInterval(moveSlide, 3000);
+</script>
+    
+{% endblock %}   
+<!--//-----JAVASCRIPT---->

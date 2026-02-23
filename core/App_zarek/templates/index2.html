@@ -1,0 +1,269 @@
+{% extends 'basis.html' %}
+{% load static %}
+{% load i18n %}
+
+<!----HEAD---->
+{% block styles %}<style>
+body{font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 30px;
+
+
+}
+.opmaak{
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 5px 16px;
+gap: 10px;
+
+position: relative;
+width: 192px;
+height: 32px;
+
+background: linear-gradient(91.21deg, #850305 20.69%, #990507 56.38%);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 8px;}
+
+.button{width: 160px;
+height: 22px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 22px;
+/* identical to box height */
+text-align: center;
+
+color: #FFFFFF;
+
+}
+
+
+a{color: rgba(85, 12, 12, 0.974);text-decoration: none;}
+.home img{width:50%;margin: 5% 5% 5% 5%;}
+.btn_vertaling select{min-height:50px; width: 10%; margin: 0% 0 0 80%; background-color:rgba(85, 12, 12, 0.974); border-radius: 8px;color: white;
+position: relative; transform:translateY(-20% ) ;}
+
+#js_offerte{position:absolute;top: 100px; left:10px; background-color:  rgba(129, 112, 112, 0.974); 
+width:20%;height:30px;border-radius:10px;margin:2% 0 2% 0;}/* begin positie*/
+.trap img{width:5%; margin:0 0 0 90%;}
+</style>{% endblock %}
+<!---//HEAD---->
+<!---------------------------------------BODY------------------------------------------------------------------------------------------->
+<!----HEADER------>
+{% block header %}
+<!-----dropdown om taal te wisselen-------->
+<div class = "row">
+    <div class="col-12 btn_vertaling">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% get_available_languages as LANGUAGES %}
+        <select id="lang-select">
+            {% for lang_code, lang_name in LANGUAGES %}
+            <option value="{{ lang_code }}"
+            {% if lang_code == LANGUAGE_CODE %}selected{% endif %}>
+            {{ lang_name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+<!---//--dropdown om taal te wisselen-------->
+<div class = "row">
+    <div class="col-12">
+       <div class = "titelA">  Zarek</div>
+       <div class = "titelB">  van fundering tot afwerking </div>
+    </div>
+</div>
+{% endblock header %}
+<!--//HEADER------>
+
+
+
+<!----SECTION------>
+{% block section1 %}
+<div class = "row">
+    <div class="col-12">
+
+<em> {% trans  "Ben je geen klusser?" %}   </em> <br><br>
+
+{% blocktrans %}
+
+    <em>Ben je een klusser, maar heb je er geen tijd voor of ben je het overzicht kwijt? <br><br>
+        Of zoek je simpelweg iemand die het voor je kan doen? 
+    </em>
+       Vraag dan een <a href = "/contact.html"> offerte </a> aan. 
+       Bij Zarek Bouw is weinig te veel.
+
+       Wellicht zien we elkaar! 
+    </div>
+</div>
+{% endblocktrans %}
+{% endblock %}
+<!--//SECTION------>
+
+
+<!----SECTION------>
+{% block section2 %}
+<div class = "row">
+    <div class="col-9"> <br> </div>
+
+    <div class="col-2">     
+        <div class = "opmaak" id = "js_offerte">
+            <a href = "/contact.html"> <div class = "button" >
+                Offerte aanvragen
+            </div> </a>
+        </div>
+        
+        
+</div>
+{% endblock %}
+<!--//SECTION------>
+
+<!----SECTION------>
+{% block section3 %}
+<!---->
+<div class = "row">
+    <div class="col-12 trap"> 
+        <div> <img src="{% static 'img/trap.png' %}" alt=""></div> 
+    </div>
+</div>
+<!---->
+<div class = "row" style="clip-path: polygon(2% 0%, 100% 0%, 98% 100%, 0% 100%);margin:0 0 0 0; background-color:rgba(85, 12, 12, 0.974)"> 
+    <div class="col-12"> 
+        <div class = "titelB" style ="color:white;"> Laatste project </div> 
+        {% for foli in folis %}
+            <div class = "col-6 home" style="padding: 0% 0% 0% 0%;">
+                <a href="{% url 'DetailFoli_url' foli.pk %}"> <img src="{{ foli.afbeeld1.url }}" alt="afbeelding1">  </a>
+            </div>
+            <div class = "col-6 home" style="padding: 0% 0% 0% 0%;">
+                <a href="{% url 'DetailFoli_url' foli.pk %}"> <img src="{{ foli.afbeeld2.url }}" alt="afbeelding1">  </a>
+            </div>
+        {% empty %}
+           Geen afbeeldingen zichtbaar
+        {% endfor %}
+    </div>
+    
+    <div class="col-2">       </div>
+</div>
+<!---->
+<div class = "row">
+    <div class="col-12 "> 
+    </div>
+</div>
+<!--//SECTION------>
+{% endblock %}
+
+<!----SECTION------>
+ {% block section4 %}   
+    <div class = "container_blog">
+        <div class = "blog center">
+            <div class = "tekst-C">
+            “Zarek Bouw voert al jarenlang onderhoudswerkzaamheden uit voor 
+            Stichting Behoud Waardevol Erfgoed, van funderingsherstel tot schilderwerk. 
+            We zijn ontzettend blij met de resulaten en de samenwerking” <br> <br> - Sebastiaan Verspuij -  
+            </div>
+        </div>
+
+        <div class = "blog right">
+            <div class = "tekst-C">
+                “Onze oude badkamer is geheel vernieuwd door Zarek Bouw. Daar zijn we super blij mee
+                De eigenaar werkt fijn samen en denkt creatief mee” <br><br> <br> - Violette Kamper -  
+            </div>
+        </div>
+
+        <div class = "blog right">
+            <div class = "tekst-C">
+                “Ik ben heel tevreden met mijn nieuwe keuken. Communcitie & samenwerking was zeer goed. 
+                Zarek Bouw denkt graag mee met de oplossingen 
+                ” <br><br> <br> - France de Bieville -  
+            </div>
+        </div>
+    </div> 
+  {% endblock %}   
+<!--//SECTION------>
+ 
+
+
+<!----JAVASCRIPT------>
+{% block javascript %}
+<script>
+// Javascript -- verplaatsing button offerte aanvraag 
+console.log("offerte button verplaatsen 1/2")
+//const offerte = document.getElementById("js_offerte");
+const offerte = $("#js_offerte")
+var eindlinks = ($(window).width() - offerte.width())*4/5;
+var eindboven = ($(window).height() - offerte.height())*3/4;
+offerte.animate({
+    left: eindlinks + "px",
+    top: eindboven + "px"
+    //left: "1000px",
+    //top: "400px"
+    }, 3000);
+    console.log("offerte button verplaatsen 2/2")
+    console.log($("#js_offerte").css("left"), $("#js_offerte").css("top"));
+</script>
+
+<script>
+// Javascript -- vertalingen
+    console.log("Index: vertaling 1/2")
+    const select = document.getElementById("lang-select");
+
+    select.addEventListener("change",function(){
+        console.log("Index: vertaling 2/2")
+        fetch("{% url 'set_language' %}", {                                       // {url ... } dit mag niet in het js.bestand
+                method: "POST",                                                   // accepteert alleen POST 
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",          // Content-Type: django verwacht form-data, geen JSON
+                    "X-CSRFToken": "{{ csrf_token }}"                             // X-CSRFToken: verplicht bij POST, {{ csrf_token }} werkt alleen in templates 
+                },
+                body: "language=" + this.value + "&next={{ request.paht }}"       //next waar Django je naartoe terugstuurt 
+        })
+        .then(() => location.reload());                                           //nodig omdat fetch niet automatisch herlaadt, na reload nieuwe taal zichtbaar
+    });
+</script>
+{% endblock %}
+<!----//JAVASCRIPT------>
+
+
+
+
+
+<!-------JAVASCRIPT---->
+{% block javascript %}
+<script>
+
+$(document).ready(function(){
+
+const texts = document.querySelectorAll(".blog");
+let current = 0;
+
+console.log("verplaatsen blog 1/2")
+
+texts.forEach(t => t.className = "blog rigth");
+texts[0].className = "blog center";
+
+function showNext() {
+    const prev = current;
+    current = (current + 1) % texts.length;
+    const next = (current + 1) % texts.length;
+
+ 
+    texts.forEach(t => t.className = "blog left");
+   
+    texts[prev].className = "blog left"; // huidige gaat naar links
+    texts[current].className = "blog center";  // nieuwe komt in het midden
+    texts[next].className = "blog rigth";  // volgende klaarzetten rechts
+}
+// elke 2 seconden wisselen (1.4s beweging + 0.6s stilstand)
+    setInterval(showNext, 2000);
+    console.log("verplaatsen blog 2/2")
+    console.log(texts.length);
+});
+</script>
+{% endblock %}
+<!-----//JAVASCRIPT---->

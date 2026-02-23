@@ -1,0 +1,109 @@
+{% extends 'basis.html' %}
+{% load static %}
+
+<!-----HEAD---->
+{% block styles %}<style>
+
+/* ---PORTFOLIO---------laptop--------------------*/
+.port1{background-color:green;border-radius: 5px 0 0 0;}
+
+
+/* -//PORTFOLIO---------laptop--------------------*/
+
+
+</style>{% endblock %}
+<!---//HEAD---->
+<!---------------------------------------BODY------------------------------------------------------------------------------------------->
+
+
+<!----SECTION------>
+{% block section0 %}  
+    <div class = "tekst-Z" style = "margin: 2% 0 10% 0;">Impressie van onze projecten</div>
+{% endblock %}   
+<!--//SECTION------>
+
+<!----------SECTION----->
+{% block section1 %}
+
+<!---->
+<div class = "container full-height2">
+   
+    {% for foli in folis %}
+    <div class = "row2 h-25">
+        <div class = "col-6 home port1">
+            <a href="{% url 'DetailFoli_url' foli.pk %}"> <img src="{{ foli.afbeeld1.url }}" alt="in construction"> </a>
+        </div>
+
+        <div class = "col-6 home">
+            <a href="{% url 'DetailFoli_url' foli.pk %}"> <img src="{{ foli.afbeeld2.url }}" alt="in construction"> </a> 
+        </div>
+    </div>
+    {% endfor %}
+ 
+</div>
+
+
+{% endblock %}
+
+
+<!----------SECTION----->
+{% block section2 %}
+
+<!---->
+<div class = "container full-height2">
+   
+    {% for foli in folis %}
+    <div class = "row2 h-25">
+        <div class = "col-6 home port1">
+            <a href="{% url 'DetailFoli_url' foli.pk %}"> <img src="{{ foli.afbeeld1.url }}" alt="in construction"> </a>
+        </div>
+
+        <div class = "col-6 home">
+            <a href="{% url 'DetailFoli_url' foli.pk %}"> <img src="{{ foli.afbeeld2.url }}" alt="in construction"> </a> 
+        </div>
+    </div>
+    {% endfor %}
+ 
+</div>
+
+
+{% endblock %}
+
+
+{% block section3 %}
+
+<div class = "row" >
+{% for foli in folis %}
+    <div class ="tekst-D"> {{ foli.naam }}</div>
+    <div class = "col-6" style="padding: 0% 0% 0% 0%;">
+        <div class = "afbeelding">
+            <div class = "vorm-rand">
+                <div class="vorm">
+                    <a href="{% url 'DetailFoli_url' foli.pk %}"> <img src="{{ foli.afbeeld1.url }}" alt="in construction"> </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class = "col-6 ">
+        <div class = "afbeelding">
+            <div class = "vorm-rand">
+                <div class="vorm">
+                    <a href="{% url 'DetailFoli_url' foli.pk %}" TARGET = "_blank"> <img src="{{ foli.afbeeld2.url }}" alt="in construction"> </a>
+                </div>
+            </div>
+        </div>
+    </div>  
+    <div class ="vorm-titel"> ----------------</div>
+
+{% endfor %}
+</div>
+
+  <div class = "row2 h-25">
+        <div class ="tekst-D"> {{ foli.naam }}</div>
+    </div>
+
+{% endblock %}
+<!-----//---SECTION--->
+
+

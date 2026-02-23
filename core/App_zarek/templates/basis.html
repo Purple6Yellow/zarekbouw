@@ -1,5 +1,4 @@
 {% load static %} 
-
 <!DOCTYPE html>
 <html lang="nl">
 <!------------------------------------>
@@ -17,54 +16,222 @@
     <!--favico-->
     <link rel="icon" href = "{% static 'img/favicon.ico' %}">
     <!---------->
-    <style>
+    <style> 
+    body{will-change: transform;
+       background: linear-gradient(239.77deg, #0C3440 0%, #0F4B5A 40%, #156C83 65%, #1F87A6 94%);
+        min-height:10vh;transform:translateZ(0)}
+
+    /*Navi bar*/
+    .navi-bar{  box-sizing: border-box;position: relative;max-width: 80% ;min-height: 80px; margin:2% 0% 0% 10%;
+        background: #598987;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 50px;}  
+    /*Logo in navigatie bar*/
+    .groep1{
+        position: absolute;
+        width: 60%;
+        height: 90%;
+        left: 1%;
+        top: 1%;
+        background-color:inherit;
+        border-radius: 50px;}
+
+    .groep1A{  display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        gap: 10px;
+
+        position: absolute;
+        width: 20%;
+        height: 70%;
+        left: 1%;
+        top: 5%;
+
+        background: #FFFF;
+        border-radius: 50px;}
+
+    .groep1A img{
+        width:100%;}
+
+    /*//Logo in navigatie bar*/ 
+    /*menu balk */
+    .groep2{
+        position: absolute;
+        width: 60%;
+        height: 90%;
+        left: 38%;
+        top: 1%;
+        background-color:inherit;
+        border-radius: 50px;}
+    .groep2A{  display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+        gap: 10px;
+
+        position: absolute;
+        width: 100%;
+        height: 80%;
+        left: 0%;
+        top: 0%;
+
+        background: inherit;
+        border-radius: 50px;}
+    .groep2A ul{display:flex; gap: 20%; list-style: none; padding:0%; background-color:inherit;
+        border-radius:50px;position:absolute;top:0;left:25%;
+        ;} /*horizontaal gerangschikt, gap is tussenruimte*/
+    .groep2A li{width:100%;padding:2% 0% 1% 0%;background-color:inherit;z-index:10} /*laptop menu - teksten */
+    .groep2A a {text-decoration: none;display:inline-block; border-radius: 3px;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));transition: filter 0.2s ease;}
+    .groep2A a:hover{color:#850305;filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));transition: filter 0.2s ease;}
+
+    .groep2A a {font-family: 'Inter';font-style: normal;font-weight: 500;font-size: 20px;line-height: 150%;color:#FFFF;
+    display: inline-block;}
+    /*//menu balk */
+    /*contact button */
+    .btn_contact{   background: linear-gradient(91.21deg, #850305 20.69%, #990507 56.38%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    width:160%;
+    text-align: center;
+    padding: 0 0 0 2%;
+    margin: 1% 1% 1% 1%;}
+    /*//contact button */
+    /*//Navi bar*/
+
+   
+
+  
+
+   /*footer */
+
+   .footer{
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;position: relative;max-width: 100% ;min-height: 80px; margin:0% 0% 0% 0%;
+        top:10%;
+        left:0;} 
+    .footer img{width:80%;margin: 0 0 0 10%;}
+    .footer1{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 24px;
+        text-align: center;
+
+        color: #F8F5F0;
+        margin: 0 0 3% 0;
+
+    }
+    /*//footer */
 
 
-
-    </style>    
-    {% block styles %}{% endblock %}
+    </style>  
+    {% block styles %}
+    {% endblock %}
     <!--JQeury-->
     <script src = "{% static 'js/derden/jquery.js' %}" type= "text/javascript"></script>
     <!---------->
 </head>
 <!------------------------------------>
 <body>
-    <!--menu mob-->
-    <div class = "sectionblock0">{% block section0 %}
-        <div class = "menuHamburger" id = "menulogo">
-            <img src="{% static 'img/menulogo.png' %}" alt="logo">
-            <div class = "menuMobiel" id = "menuMobiel">
-                <ul> 
-                    <li> <a href = "/index.html"> Home </a></li>
-                    <li> <a href = "/portfolio.html"> Keuken & Badkamers </a></li>
-                    <li> <a href = "/Barthkapel.html"> Ramen & Kozijnen </a></li>
-                    <li> <a href = "/contact.html"> Contact </a></li>
-                </ul>
+<!-------BANNER---->
+<div class = "">
+    <div class = "navi-bar">
+        <!----LINKS: LOGO-->
+        <div class = "groep1">
+            <div class = "groep1A">
+                <div> <img class = "" src="{% static 'img/zarek (1).webp' %}"> </div>
             </div>
         </div>
-    {% endblock %} </div>
-    <!--menu lap-->
-    <div class = "sectionblockmenu">{% block menu %}
+        <!--//LINKS: LOGO-->
+        <!----RECHTS: MENUBALK-->
+        <!----menu lap-->
+        <div class = "groep2">
+            {% block menu %}
+            <div class = "groep2A">
+                <div class="">
+                    <ul>
+                        <li> <a href = "/index.html"> Home </a> </li>
+                        <li> <a href = "/portfolio.html"> Projecten</a> </li>
+                        <li> <a href = "/diensten.html"> Diensten </a> </li>
+                        <li> <div class = "btn_contact"> <a href = "/contact.html"> Contact </a>   </div>   </li>
+                    </ul> 
+                </div>  
+            </div>   
+            {% endblock %}
+        </div>
+        <!--//menu lap-->
+        <!--//RECHTS: MENUBALK-->
+    </div>
+</div>
+<!-----//BANNER---->
+<!-------SECTION---->
+<div class = "section0">
+ {% block section0 %}{% endblock %}  
+</div>
+<!-----//SECTION---->
+
+<!-------SECTION---->
+<div class = "section1">
+ {% block section1 %}{% endblock %}  
+</div>
+<!-----//SECTION---->
+<!-------SECTION---->
+<div class = "section2">
+ {% block section2 %}{% endblock %}  
+</div>
+<!-----//SECTION---->
+<!-------SECTION---->
+<div class = "section3">{% block section3 %}{% endblock %}  </div>
+<!-----//SECTION---->
+<!-------SECTION---->
+<div class = "section4">{% block section4 %}{% endblock %}  </div>
+<!-----//SECTION---->
+
+<!-------JAVASCRIPT---->
+{% block javascript %} {% endblock %}
+<!-----//JAVASCRIPT---->
+
+<!-------FOOTER---->
+       
+<div class = "footer">
+     {% block footer %}
+    <!---->
     <div class = "row">
-        <div class="col-12">   
-                <div class= "menu-container">
-                    <ul id = "" class="menuLaptop">
-                            <li> <a href = "/index.html"> Home </a> </li>
-                            <li> <a href = "/portfolio.html"> Keuken & Badkamers </a> </li>
-                            <li> <a href = ""> Ramen & Kozijnen </a> </li>
-                            <li> <a href = "/contact.html"> Contact </a> </li>
-                    </ul>
-                </div>
+        <div class = "col-12">
+            <span><a href="https://www.facebook.com/ZarekBouwINFO/"  target = "_blank"> <img style = "width:3%; margin: 2% 2% 2% 0;" src="{% static 'img/face_logo.jpg' %}" alt=""></a></span>
+            <span><a href="https://www.instagram.com/ZarekBouw/"  target = "_blank"> <img style = "width:3%; margin: 2% 0 2% 2%;" src="{% static 'img/insta_logo.png' %}" alt=""></a></span>
         </div>
     </div>
-    {% endblock %}</div>
-    <!----blocks-->
-    <div class = "bannerblock">  {% block banner %} {% endblock %}           </div>
-    <div class = "headerblock">  {% block header %}   {% endblock header %}  </div>
-    <div class = "sectionblock1">{% block section1 %} {% endblock %}         </div>
-    <div class = "sectionblock2">{% block section2 %}{% endblock %}          </div>
-    <div class = "sectionblock3">{% block section3 %}{% endblock %}          </div>
-<!------------------------------------>
-<script src = "{% static 'js/eigenontwerp/menuMobiel.js' %}" type= "text/javascript"></script>
-
-{% block javascript %} {% endblock %}
+    <!--//-->
+    <!---->
+    <div class = "row">
+        <div class = "col-4 footer1">
+           <div class = ""> Fritz Langstrook 21 <br>2726 VW Zoetermeer
+           </div>
+        </div>
+        <div class = "col-4 footer1">
+           <div> Whatsapp ons op 06 28 89 49 09 <br> Of mail naar Zarekbouw@hotmail.com  </div>
+        </div>
+        <div class = "col-4 footer1">
+           <div> KVK 60922192 <br> Privacy Policy en Algemene Voorwaarden  </div>
+        </div>
+    </div>
+    <!--//-->
+    <!---->
+    <div class = "row">
+        <div class = "">
+           <div> <img class = "" src="{% static 'img/logo2.png' %}"> </div>
+        </div>
+    </div>
+    <!--//-->
+    
+    
+{% endblock %}          
+</div>
+<!-----//FOOTER---->
+</body>
+</html>

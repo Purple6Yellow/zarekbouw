@@ -9,14 +9,13 @@ from django.db.models.fields.files import ImageField
 
 # ALGEMEEN
 def index_view(request):
-    return render(request, 'index.html')
-
+  return render(request, 'index.html') # volgens mij nodig voor algemene url
+def diensten_view(request):
+  return render(request, 'diensten.html') 
 
 ### -- PORTFOLIO -- ### 
 class OverzichtFoli(ListView):
     model = Portfolio
-
-    template_name = "portfolio.html"
     context_object_name = "folis"
 
     def get_context_data(self, **kwargs):
@@ -49,6 +48,17 @@ class DetailFoli(DetailView):
         context["image_urls"] = image_urls
         return context
 
+class FoliListView(OverzichtFoli):
+    template_name = "portfolio.html"
+
+class FoliCardView(OverzichtFoli):
+    template_name = "index.html"
+
+    def get_queryset(self):
+      qs = Portfolio.objects.order_by('created_by')[:1]
+      #print("Aantal producten:", qs.count())
+      #print("view voor index werkt")
+      return qs
 
        # print(foli_detail)          # laat __str__ zien
        # print(foli_detail.id)       # of andere velden
