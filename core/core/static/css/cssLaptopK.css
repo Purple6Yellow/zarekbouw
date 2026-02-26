@@ -22,6 +22,7 @@ iframe{width: 100%;height:400px;}
 
 .full-height{min-height:200vh;}
 
+
 [class*='h-']{display:flex;}
 .h-100{height:100%;}
 .h-75{height:75%;}
@@ -37,40 +38,110 @@ iframe{width: 100%;height:400px;}
 .tekst-C {padding:1% 5% 5% 5%;font-weight: 500;font-size: 1rem;line-height: 28px;text-align:center;color:white;} 
 .tekst-D {padding:1% 5% 5% 5%;font-weight: 600;font-size: 25px;line-height: 38px;text-align: center;} 
 
+/*  --BASIS  */ /*BANNER*/
+body{will-change: transform;
+    background: linear-gradient(239.77deg, #0C3440 0%, #0F4B5A 40%, #156C83 65%, #1F87A6 94%);
+    min-height:10vh;transform:translateZ(0)}
+.navi-bar{  box-sizing: border-box;position: relative;max-width: 80% ;min-height: 80px; margin:2% 0% 0% 10%;
+    background: #598987;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;}  
+/*Logo in navigatie bar*/
+.groep1{
+    position: absolute;
+    width: 60%;
+    height: 90%;
+    left: 1%;
+    top: 1%;
+    background-color:inherit;
+    border-radius: 50px;}
+.groep1A{  display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
 
-/* ---BASIS-----------laptop--------------------*/
-.menuMobiel, .menuHamburger {display:none;} /* dropdown menu mobiele versie  & sandwich logo*/
-.sectionblockmenu{background-color:inherit;margin:0 0 0 0%;} /*block voor menu laptop */
-.headerblock{min-height:50px;padding: 1% 1% 2% 0%;opacity: 0.1;}
-.titelA{font-size:80px; color: rgba(85, 12, 12, 0.974);}
-.titelB{font-size:60px; color: rgba(85, 12, 12, 0.974);}
-/* -//BASIS-----------laptop--------------------*/
+    position: absolute;width: 20%;height: 70%;left: 1%;top: 5%;
+    background: #FFFF;
+    border-radius: 50px;}
+.groep1A img{width:100%;}
+/*//Logo in navigatie bar*/ 
+/*menu balk */
+.groep2{
+    position: absolute;width: 60%;height: 90%;left: 38%;top: 1%;
+    background-color:inherit;border-radius: 50px;}
+.groep2A{  display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
 
-/* ---INDEX-----------laptop--------------------*/
-.btn{background-color:  rgba(129, 112, 112, 0.974); width:100%;height:50px;border-radius:10px;}
-/* -//INDEX-----------laptop--------------------*/
-/* ---CONTACT (INDEX section3)---------laptop--------------------*/
-.container_contact{width:60%; height: 80%; margin: 0% 0 0 20%;background-color:inherit; padding: 10% 0 0 0;}
-.formulier{width:80%; margin: 0 0 0 10%;padding: 3% 0 3% 0; background-color:inherit;}
-/* via forms.py */
-.form_eigenA, .form_eigenB {padding: 1% 0 1% 0; width: 100%;margin: 2% 0 2% 0%;background-color:white; border-radius: 10px;text-align: center;}
-.form_eigenA {height:50px;}
-.form_eigenB {height:100px;}
-/* via forms.py */
-/* -//CONTACT---------laptop--------------------*/
+    position: absolute;width: 100%;height: 80%;left: 0%;top: 0%;
 
- html, body{height:100%;width:100%;margin:0 0 0 0%;}
-/*  section1*/
-.section1{background-color: #F8F5F0; border-radius:40px;min-height:800px;margin:2% 2% 2% 0%;width:100%;padding:0% 0 0 0;}
-.container{background-color:inherit;border-radius:40px;}
+    background: inherit;
+    border-radius: 50px;}
+.groep2A ul{display:flex; gap: 20%; list-style: none; padding:0%; background-color:inherit;
+    border-radius:50px;position:absolute;top:0;left:25%;
+    ;} /*horizontaal gerangschikt, gap is tussenruimte*/
+.groep2A li{width:100%;padding:2% 0% 1% 0%;background-color:inherit;z-index:10} /*laptop menu - teksten */
+.groep2A a {text-decoration: none;display:inline-block; border-radius: 3px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));transition: filter 0.2s ease;}
+.groep2A a:hover{color:#850305;filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));transition: filter 0.2s ease;}
 
-.home{display:flex;flex-direction:column;background-color:inherit;overflow:hidden;border-radius:40px;}
+.groep2A a {font-family: 'Inter';font-style: normal;font-weight: 500;font-size: 20px;line-height: 150%;color:#FFFF;
+display: inline-block;}
+.groep2_laptop{display:flex;}
+.groep2_mobiel{display:none;}
+/*//menu balk */
+/*contact button */
+.btn_contact{   background: linear-gradient(91.21deg, #850305 20.69%, #990507 56.38%);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 8px;
+width:160%;
+text-align: center;
+padding: 0 0 0 2%;
+margin: 1% 1% 1% 1%;}
+.btn_2{margin: 3% 0 3% 100%;}
+/*//contact button */
+/*  //BASIS  */ /*BANNER*/
+/*  --BASIS  */ /*FOOTER*/
+.footer{display: flex;flex-direction: column;box-sizing: border-box;position: relative;max-width: 100% ;
+    min-height: 80px; margin:0% 0% 0% 0%;top:10%;left:0;} 
+.footer img{width:80%;margin: 0 0 0 10%;}
+.footer1{font-family: 'Inter';font-style: normal;font-weight: 500;font-size: 18px;
+    line-height: 24px;text-align: center;
+    color: #F8F5F0;margin: 0 0 3% 0;}
+/*  //BASIS  */ /*FOOTER*/
+/*  --SECTION1  */ 
+.section1{background-color: #F8F5F0; border-radius:40px;margin:2% 2% 2% 0%;width:100%;padding:0% 0 0 0;min-height:100px;}
+.container{width:60%;margin: 0% 0 0 20%;padding: 2% 0 3% 0;display:flex; flex-wrap: wrap; flex-direction: row; gap: 20px;justify-content: space-between;}
+.home{flex: 1;border-radius:40px;}
 .home-image1, .home-image2, .home-image3,  .home-image4,  .home-image5{background-size:cover;background-repeat:no-repeat; flex: 0 0 50vh;}
 .home img{min-height:100%;object-fit:cover;object-position: right center;}
-/*  //section*/
-/*  section3*/
+.reverse{flex-direction:row-reverse;}
+/*  //SECTION1  */ 
+
+/* ---INDEX-------------laptop--------------------*/
+.btn{background-color:  rgba(129, 112, 112, 0.974); width:100%;height:50px;border-radius:10px;}
+/* -//INDEX-------------laptop--------------------*/
+/* ---(HULP)CONTACT-----laptop--------------------*/
+.section0{margin:2% 2% 2% 0%;width:100%;padding:0% 0 0 0;min-height:100px;background-color:inherit;} /*gebruikt bij hulpcontact.html */
 .section3{background-color:  #F8F5F0; border-radius:40px;margin:2% 0% 0% 10%;width:80%;padding:0% 0 0 0%;min-height:300px}
-/*  //section3*/
+.container_contact{width:60%; height: 80%; margin: 0% 0 0 20%;background-color:inherit; padding: 1% 0 0 0;}
+.formulier{width:80%; margin: 0 0 0 10%;padding: 3% 0 3% 0; background-color:inherit;}
+/* via forms.py */
+.form_eigenA1{height:50px; margin: 2% 0% 0 0%; background-color:white;
+    padding: 1% 0 1% 0; width: 100%; border-radius: 10px;text-align: center;}
+.form_eigenA2{height:50px; margin: 2% 0 2% 37%; background-color:white;
+    padding: 1% 0 1% 0; width: 100%; border-radius: 10px;text-align: center;}
+.form_eigenB {height:100px; margin: 2% 0 2% 0%; background-color:white;
+    padding: 1% 0 1% 0; width: 100%; border-radius: 10px;text-align: center;}
+/* via forms.py */
+/* -//CONTACT-----------laptop--------------------*/
+
+ html, body{height:100%;width:100%;margin:0 0 0 0%;}
+
+
 /* ---KLEUR & LETTERTYPE----------mobiel--------------------*/
 
 }

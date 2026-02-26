@@ -1,0 +1,206 @@
+{% extends 'basis.html' %}
+{% load static %}
+{% load i18n %}
+<!----HEAD---->
+{% block styles %}
+<style>
+/* huidige pagina */
+.home-image1{background-image: url('../../static/img/home1.jpg');}
+.home-image2{background-image: url('../../static/img/home2.jpg');}
+.home-image3{background-image: url('../../static/img/home3.jpg');background-position: center 100%; outline: 3px solid black; /* debug */}
+/* huidige pagina */
+
+
+/*  --SECTION1  */ 
+.section1{background-color: #F8F5F0; border-radius:40px;min-height:800px;margin:2% 2% 2% 0%;width:100%;padding:0% 0 0 0;}
+.container{display:flex;flex-direction: row; flex-wrap: wrap; background-color:inherit;border-radius:40px;}
+
+.home{display:flex;flex-direction:column;background-color:inherit;overflow:hidden;border-radius:40px;}
+.home-image1, .home-image2, .home-image3,  .home-image4,  .home-image5{background-size:cover;background-repeat:no-repeat; flex: 1 1 300px;}
+.home img{min-height:100%;object-fit:cover;object-position: right center;}
+/*  //SECTION1  */ 
+
+
+
+
+/*  section2*/
+.section2{background-color: inherit; border-radius:40px;margin:2% 0% 2% 0%;width:100%;padding:0% 0 0 0;}
+.container_blog{position:relative;overflow:hidden;width:50%;height:200px;margin:0 0 0 25%;padding:5% 0 0 0;}
+.blog{position:absolute;top:0%;width:100%;height:50px;margin: 5% 0 0 0%;text-align: center;
+    background-color:inherit;transition:transform 1.0s ease; line-height: 50px;}
+.left {transform: translateX(-100%);}
+.center {transform: translateX(100);}
+.right {transform: translateX(200%);}
+/*//section2*/
+
+/*//section2*/
+.home1{flex: 0 0 50%;}
+
+
+
+
+
+
+
+</style>
+{% endblock %}
+<!---//HEAD---->
+<!---------------------------------------BODY------------------------------------------------------------------------------------------->
+<!----HEADER------>
+<!--//HEADER------>
+
+<!----SECTION------>
+ {% block section1 %}   
+<!---->
+<div class = "container full-height">
+    <div class = "row2 h-25">
+        <div class = "col-4 home">
+            <div class = "home-image1"></div>
+        </div>
+        <div class = "col-8 home">
+            <div class = "tekst-A">Welkom bij Zarek Bouw</div>
+            <div class = "tekst-B"> Bent u op zoek naar een ervaren aannemer die meedenkt, afspraken
+                nakomt en kwaliteit levert? <br>
+                Bij <strong> Zarek Bouw </strong> bent u aan het juiste adres. Wij verzorgen uiteenlopende bouwprojecten voor zowel particulieren 
+                als bedrijven, van kleine verbouwingen tot complete renovaties.     
+            </div>
+            <a href = "/portfolio.html"> <div class ="btn_index1"> Projecten </div> </a>
+        </div>
+    </div> 
+<!---->
+    <div class = "row2 h-25">
+        <div class = "col-8 home">
+            <div class = "tekst-A">Vakmanschap & betrouwbaarheid</div>
+            <div class = "tekst-B"> Met jarenlange ervaring in de bouw weten wij wat belangrijk is: 
+                duidelijkheid, vakmanschap en een strakke planning. Wij werken met hoogwaardige materialen en een 
+                vast team van professionals, zodat u kunt rekenen op een duurzaam en netjes afgewerkt resultaat.    
+            </div>
+            <a href = "/portfolio.html"> <div class ="btn_index1"> Diensten </div> </a>
+        </div>
+        <div class = "col-4 home">
+            <div class = "home-image2">
+               
+            </div>
+        </div>
+    </div> 
+<!---->
+    <div class = "row2 h-25">
+        <div class = "col-4 home">
+            <div class = "home-image3">
+            
+            </div>
+        </div>
+        <div class = "col-8 home">
+            <div class = "tekst-A">Persoonlijk & transparant</div>
+            <div class = "tekst-B"> Geen verrassingen achteraf. Wij communiceren helder, geven eerlijk advies en maken vooraf duidelijke afspraken over kosten en planning. 
+                Zo weet u precies waar u aan toe bent.   
+            </div>
+             <a href = "/contact.html"> <div class ="btn_index1"> Offerte </div> </a>
+        </div>
+    </div> 
+</div>
+
+ {% endblock %}   
+<!--//SECTION------>
+<!----SECTION------>
+{% block section2 %}   
+<div class="carousel">
+  <div class="track">
+    <div class="item">“Zarek Bouw voert al jarenlang onderhoudswerkzaamheden uit voor 
+            Stichting Behoud Waardevol Erfgoed, van funderingsherstel tot schilderwerk. 
+            We zijn ontzettend blij met de resulaten en de samenwerking” <br> <br> - Sebastiaan Verspuij -  </div>
+    <div class="item"> “Onze oude badkamer is geheel vernieuwd door Zarek Bouw. Daar zijn we super blij mee
+                De eigenaar werkt fijn samen en denkt creatief mee” <br><br> <br> - Violette Kamper - </div>
+    <div class="item">   “Ik ben heel tevreden met mijn nieuwe keuken. Communcitie & samenwerking was zeer goed. 
+                Zarek Bouw denkt graag mee met de oplossingen 
+                ” <br><br> <br> - France de Bieville -</div>
+
+    <!-- duplicaat voor infinite loop -->
+    <div class="item">      “Zarek Bouw voert al jarenlang onderhoudswerkzaamheden uit voor 
+            Stichting Behoud Waardevol Erfgoed, van funderingsherstel tot schilderwerk. 
+            We zijn ontzettend blij met de resulaten en de samenwerking” <br> <br> - Sebastiaan Verspuij -  </div>
+    <div class="item">      “Onze oude badkamer is geheel vernieuwd door Zarek Bouw. Daar zijn we super blij mee
+                De eigenaar werkt fijn samen en denkt creatief mee” <br><br> <br> - Violette Kamper - </div>
+    <div class="item">   “Ik ben heel tevreden met mijn nieuwe keuken. Communcitie & samenwerking was zeer goed. 
+                Zarek Bouw denkt graag mee met de oplossingen 
+                ” <br><br> <br> - France de Bieville -</div>
+  </div>
+</div>
+
+    
+{% endblock %}   
+<!--//SECTION------>
+
+
+
+
+<!-------SECTION---->
+ {% block section3 %}
+<div class = "">
+<div class = "container_contact">
+    <div class = "tekst-A1"  style="text-align: center;"> Kunnen we je helpen? <span style="color:#990507">Wij staan voor je klaar. </span></div>
+    <div class = "tekst-B"> Heeft u bouwplannen of wilt u een vrijblijvende offerte aanvragen? 
+        Neem vandaag nog contact met ons op. <strong> Zarek Bouw </strong> staat klaar om uw project vakkundig te realiseren.</div>
+
+    <!----> 
+    <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class=""> </div>
+    <div class = "formulier">
+    <!----> 
+        <div class ="row">
+            <div class = "col-5" style = "margin: 0% 7.7% 0 0%;"> {{ contact_form.naam }} </div>
+            <div class = "col-5" style = "margin: 0 0 0 7.7%;"> {{ contact_form.email }}  </div>
+        </div>
+        <!----> 
+        <!----> 
+        <div class ="row">
+        <div class = "col-12"> {{ contact_form.bericht }} </div>
+        </div>
+        <!----> 
+        <!---->
+        <div class="row">
+                <a href = ""> <div class ="btn_index1" style="margin: 3% 0 3% 100%;"> Verzenden </div> </a>
+    </div>
+    </div>
+    </form>
+
+</div>
+</div> 
+ {% endblock %}  
+
+<!-----//SECTION---->
+
+
+<!-------JAVASCRIPT---->
+{% block javascript %}
+
+<script>
+const track = document.querySelector('.track');
+const items = document.querySelectorAll('.item');
+
+const slideWidth = 500;
+const originalCount = items.length / 2; // omdat we dupliceren
+let index = 0;
+
+function moveSlide() {
+  index++;
+  track.style.transition = "transform 0.8s ease-in-out";
+  track.style.transform = `translateX(-${index * slideWidth}px)`;
+
+  // Zodra we bij de kopie zijn, resetten zonder animatie
+  if (index === originalCount) {
+    setTimeout(() => {
+      track.style.transition = "none";
+      track.style.transform = `translateX(0px)`;
+      index = 0;
+    }, 5000);
+  }
+}
+
+setInterval(moveSlide, 3000);
+</script>
+    
+{% endblock %}   
+<!--//-----JAVASCRIPT---->
+

@@ -1,0 +1,48 @@
+
+<!----SECTION------>
+{% block section1 %}  
+{% endblock %}   
+<!--//SECTION------>
+<!-------SECTION---->
+ {% block section3 %}
+<div class = "">
+<div class = "container_contact">
+    <div class = "tekst-A1"  style="text-align: center;"> Kunnen we je helpen? <span style="color:#990507">Wij staan voor je klaar. </span></div>
+    <div class = "tekst-B"> Heeft u bouwplannen of wilt u een vrijblijvende offerte aanvragen? 
+        Neem vandaag nog contact met ons op <strong> Zarek Bouw </strong> staat klaar om uw project vakkundig te realiseren.</div>
+
+    <!----> 
+    <form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class=""> </div>
+    <div class = "formulier">
+    <!----> 
+        <div class ="row">
+            <div class = "col-5"> {{ contact_form.naam }} </div>
+            <div class = "col-5"> {{ contact_form.email }}  </div>
+        </div>
+        <!----> 
+        <!----> 
+        <div class ="row">
+        <div class = "col-12"> {{ contact_form.bericht }} </div>
+        </div>
+        <!----> 
+        <!---->
+        <div class="row">
+                <a href = ""> <div class ="btn_2" > Verzenden </div> </a>
+    </div>
+    </div>
+    </form>
+
+</div>
+</div> 
+
+{% if request.GET.submitted %}
+<p>Bedankt voor je bericht!</p>
+{% endif %}
+ {% endblock %}  
+
+<!-----//SECTION---->
+
+
+

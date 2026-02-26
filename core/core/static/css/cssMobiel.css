@@ -1,11 +1,13 @@
 @media only screen and (min-device-width: 150px){
-/* ---ALLE TEMPLATES-----------mobiel-----------*/
+/*  --TEMPLATES  */
 .row{display:inline-block;width:100%;background-color: inherit;}
+.row1{display:flex;width:100%;background-color: inherit;}
+.row2{display:flex; width: 60%;margin: 0 0 0 20%; padding: 5% 0 0 0;}
 [class*="col-"]{display: inline-block;text-align: center;}
 .col-2,.col-3,.col-4,.col-5,.col-6,.col-10,.col-12,.col-25,.col-30,.col-40{width:100%;}  
 
-/*index button */
-.btn_index1{ display: flex; flex-direction: row;
+/*  BUTTON */
+.btn_index1, .btn_2{ display: flex; flex-direction: row;
 background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #990507;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 border-radius: 8px;
@@ -16,94 +18,169 @@ text-align: center;
 justify-content: center;
 align-items: center;
 padding: 5px 16px;
-gap: 10px;
+gap: 10px;  
 font-weight: 600;
 font-size: 18px;
 line-height: 22px;
 color: #FFFFFF;}
-/*//index button */
+.btn_2{margin: 5% 0 3% 50%;}
+/*  //BUTTON */
+
 a{text-decoration: none;}
 
-/* ---BASIS-----------mobiel--------------------*/
-.sectionblock0{background-color:inherit;}
-.menuHamburger {background-color:inherit;}
-.menuHamburger img{width:10%;margin:1% 0 0 80%;} /*sandwich menu logo */
+.full-height{min-height:200vh;}
+
+[class*='h-']{display:flex;}
+.h-100{height:100%;}
+.h-75{height:75%;}
+.h-50{height:50%;}
+.h-25{height:25%;background-color:inherit;}
+
+[class*=tekst-]{font-family: 'Inter';font-style: normal;font-weight: 500;color: #0C3440 ;align-items: center;z-index:100;}
+.tekst-Z {padding:1% 5% 1% 5%;font-weight: 600;font-size: 2rem;line-height: 100%;text-align:center;color:white;}
+
+.tekst-A {padding:1% 5% 1% 5%;font-weight: 600;font-size: 2rem;line-height: 100%;text-align:justify;}
+.tekst-A1{padding:1% 5% 1% 5%;font-weight: 600;font-size: 1.5rem;line-height: 100%;text-align:justify;}
+.tekst-B {padding:1% 5% 5% 5%;font-weight: 500;font-size: 1rem;line-height: 28px;text-align:justify;} 
+.tekst-C {padding:1% 5% 5% 5%;font-weight: 500;font-size: 1rem;line-height: 28px;text-align:center;color:white;} 
+.tekst-D {padding:1% 5% 5% 5%;font-weight: 600;font-size: 25px;line-height: 38px;text-align: center;} 
+/*  //TEMPLATES  */
+
+/*  --BASIS  */ /*BANNER*/
+body{will-change: transform;
+    background: linear-gradient(239.77deg, #0C3440 0%, #0F4B5A 40%, #156C83 65%, #1F87A6 94%);
+    min-height:10vh;transform:translateZ(0)}
+.navi-bar{  box-sizing: border-box;position: relative;max-width: 95% ;min-height: 80px; margin:2% 0% 0% 2.5%;
+    background: #598987;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;}  
+/*Logo in navigatie bar*/
+.groep1{
+    position: absolute;
+    width: 60%;
+    height: 90%;
+    left: 1%;
+    top: 1%;
+    background-color:inherit;
+    border-radius: 50px;}
+.groep1A{  display: flex;flex-direction: column;align-items: flex-start;padding: 10px;gap: 10px;
+
+    position: absolute;width: 50%;height: 70%;left: 1%;top: 5%;
+    background: #FFFF;
+    border-radius: 50px;}
+.groep1A img{width:100%;}
+/*//Logo in navigatie bar*/ 
+/*menu balk */
+.groep2{position: absolute;width: 60%;height: 90%;left: 38%;top: 1%;background-color:inherit;border-radius: 50px;}
+.groep2A{  display: flex;flex-direction: column;align-items: flex-start;padding: 10px;gap: 10px;
+    position: absolute;width: 100%;height: 80%;left: 0%;top: 0%;background: inherit;
+    border-radius: 50px;}
+.groep2A ul{display:flex; gap: 20%; list-style: none; padding:0%; background-color:inherit;
+    border-radius:50px;position:absolute;top:0;left:25%;
+    ;} /*horizontaal gerangschikt, gap is tussenruimte*/
+.groep2A li{width:100%;padding:2% 0% 1% 0%;background-color:inherit;z-index:10} /*laptop menu - teksten */
+.groep2A a {text-decoration: none;display:inline-block; border-radius: 3px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));transition: filter 0.2s ease;}
+.groep2A a:hover{color:#850305;filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));transition: filter 0.2s ease;}
+.groep2A a {font-family: 'Inter';font-style: normal;font-weight: 500;font-size: 20px;line-height: 150%;color:#FFFF;
+display: inline-block;}
+.groep2_laptop{display:none;}
+.groep2_mobiel{display:flex;}
+.groep2_mobiel img{ margin:6% 0 0 70%;height:60%;}
+/*//menu balk */
+/*contact button */
+.btn_contact{   background: linear-gradient(91.21deg, #850305 20.69%, #990507 56.38%);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 8px;
+width:160%;
+text-align: center;
+padding: 0 0 0 2%;
+margin: 1% 1% 1% 1%;}
+/*//contact button */
+/*  //BASIS  */ /*BANNER*/
+/*    BASIS  */ /*MENU*/
 .menuMobiel{display: none;
-    width:60%; min-height:200px; margin: 0% 0 0 40%;padding:5% 5% 5% 5%; 
+    width:60%; min-height:200px; padding:5% 5% 5% 5%; 
     clip-path: inset(0% 0% round 20px);
     z-index:10;} /* dropdown menu mobiele versie */
 .menuMobiel a {text-decoration: none;}
 .menuMobiel li {list-style-type: none;}
 .menuLaptop{display:none;}/*menu voor laptop */
+/*  //BASIS  */ /*MENU*/
+/*  --BASIS  */ /*FOOTER*/
+.socialmedia_li{width:10%; margin: 2% 2% 2% 40%;background-color:inherit;}
+.socialmedia_re{width:10%; margin: 2% 2% 2% 0%;background-color:inherit;}
+.footer{display: flex;flex-direction: column;box-sizing: border-box;position: relative;max-width: 100% ;
+    min-height: 80px; margin:0% 0% 0% 0%;top:10%;left:0;} 
+.footer img{width:80%;margin: 0 0 0 10%;}
+.footer1{font-family: 'Inter';font-style: normal;font-weight: 500;font-size: 18px;
+    line-height: 24px;text-align: center;
+    color: #F8F5F0;margin: 0 0 3% 0;}
+/*  //BASIS  */ /*FOOTER*/
+/*  --SECTION1 mobiel  */ 
+.section1{background-color: #F8F5F0; border-radius:40px;margin:2% 2% 2% 0%;width:100%;padding:0% 0 0 0;}
+.container{width:70%; margin: 0 0 0 15%; padding:2% 0 0 0; display:flex; flex-wrap: wrap; flex-direction: column; gap: 20px;justify-content: space-between;}
+.home{flex: 1 1 250px;border-radius:40px;}
+.home-image1, .home-image2, .home-image3,  .home-image4,  .home-image5{background-size:cover;background-repeat:no-repeat; flex: 0 0 50vh;}
+.home img{min-height:100%;object-fit:cover;object-position: right center;}
+.reverse{flex-direction:column;}
+/*  //SECTION1  */ 
+/* --INDEX - SECTION2*/
+.section2{background-color: inherit; border-radius:40px;margin:2% 0% 2% 0%;width:100%;padding:0% 0 0 0;}
+.carousel {
+  width: 100%; margin: 0 0 0 0%;
+  height: 300px;
+  overflow: hidden;
+  border: 1px solid inherit;
+  background-color:inherit;}
+.track {display: flex;width: max-content;}
+.item {
+  width: 300px;
+  height: 300px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: inherit;
+  font-family: 'Inter';font-style: normal;font-weight: 500;color: #0C3440 ;align-items: center;z-index:100;
+  padding:1% 5% 5% 5%;font-size: 1rem;line-height: 28px;text-align:center;color:white;
+}
+/* //INDEX - SECTION2*/
 
 
-.algemeenblock{background-color: inherit;} /* block met banner & menublocks */
-.bannerblock{z-index:1;position:absolute;top:1%;clip-path: inset(4% 2% round 20px);margin:0 0 0 0;} /* locatie voor bedrijfslogo zelfde hoogte als menu */
-.bannerblock img{width:70%;clip-path:inset(4% 2% round 20px);}
-
-.headerblock{min-height:50px;padding: 10% 1% 2% 0%;background-color:inherit;}
-.sectionblock1, .sectionblock2, .sectionblock3{background-color: inherit;padding:0% 2% 1% 2%;}
-
-
-/* -//BASIS-----------mobiel--------------------*/
-
-/* ---INDEX-----------mobiel--------------------*/
-.btn{background-color:  rgba(129, 112, 112, 0.974); width:80%;height:30px;border-radius:10px;margin:2% 0 2% 0;}
-/* -//INDEX-----------mobiel--------------------*/
-/* ---PORTFOLIO---------mobiel--------------------*/
-.afbeelding{padding:2% 2% 2% 2%;}
-.vorm-rand{background-color: inherit;
-    height:100%; aspect-ratio: 1/1;
-    display: flex; align-items: left; justify-content: center;}
-.vorm{
-    height:96%; aspect-ratio: 1/1; margin:2% 0 0 0;}
-.vorm img{width:90%;height:90%; object-fit:cover; border-radius: 10px 10px 10px 10px;}
-.vorm-titel{font-size:20px; color: rgba(85, 12, 12, 0.974); padding: 0% 0% 5% 0%; text-align: center;background-color: inherit;height:15%;}
-/* -//PORTFOLIO---------mobiel--------------------*/
-/* ---CONTACT-----------mobiel--------------------*/
-.formulier{width:60%; margin: 0 0 0 20%;padding: 3% 0 3% 0; background-color:inherit;}
+/* ---(HULP)CONTACT-------------------------*/
+.section0{margin:2% 2% 2% 0%;width:100%;padding:0% 0 0 0;min-height:100px;background-color:inherit;} /*gebruikt bij hulpcontact.html */
+.section3{background-color:  #F8F5F0; border-radius:40px;margin:2% 0% 0% 10%;width:80%;padding:0% 0 0 0%;min-height:300px}
+.container_contact{width:60%; height: 80%; margin: 0% 0 0 20%;background-color:inherit; padding: 1% 0 0 0;}
+.formulier{width:80%; margin: 0 0 0 10%;padding: 3% 0 3% 0; background-color:inherit;}
 /* via forms.py */
-.form_eigenA, .form_eigenB {padding: 1% 0 1% 0; width: 100%;margin: 1% 0 0.5% 0%;background-color:white; border-radius: 10px;text-align: center;}
-.form_eigenA {height:20%;}
-.form_eigenB {height:100px;}
+.form_eigenA1{height:50px; margin: 2% 0% 0 0%; background-color:white;
+    padding: 1% 0 1% 0; width: 100%; border-radius: 10px;text-align: center;}
+.form_eigenA2{height:50px; margin: 2% 0 2% 0%; background-color:white;
+    padding: 1% 0 1% 0; width: 100%; border-radius: 10px;text-align: center;}
+.form_eigenB {height:100px; margin: 2% 0 2% 0%; background-color:white;
+    padding: 1% 0 1% 0; width: 100%; border-radius: 10px;text-align: center;}
 /* via forms.py */
-.button_formulier {height:20%; padding: 1% 0 1% 0; width: 50%; margin: 5% 0 0.5% 50%;background-color:white; border-radius: 10px;
-text-align: center;}
-/* -//CONTACT-----------mobiel--------------------*/
+/* -//CONTACT-------------------------------*/
+/* ---PORTFOLIO-----------------------------*/
+.dienst{display:flex;flex-direction:column;background-color:inherit;overflow:hidden;max-height:60%;}
+.port1{background-color:inherit;width:98%; margin:0 2% 0 0; height:50%;border-radius:40px 0 0 0;}
+.port2{background-color:inherit;width:98%; margin:0 0% 2% 2%; height:50%;border-radius:0px 0 40px 0px;}
+.dienst img{width:100%;height:100%;object-fit:cover;object-position: right center;}
+/* -//PORTFOLIO-----------------------------*/
 
 
 
 
 
 
-/* ---KLEUR & LETTERTYPE----------mobiel--------------------*/
-body{color:inherit;background-color:inherit;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 18px;
-line-height: 22px; }
-.menuMobiel {background-color: rgba(85, 12, 12, 0.974);} /*vorm: dropdown menu mobiele versie */
-.menuMobiel a {color:white; font-size: 23px;line-height: 40px;} /* tekst: dropdown menu mobiele versie */
-.menuMobiel a:hover{color:gray;}
-
-
-.menuLaptop a{color: black;font-size: 25px;}
-.menuLaptop a:hover{color: rgba(85, 12, 12, 0.974)}
-.headerblock{background-color:inherit;font-size: 30px;}
-
-.titelA{font-size:40px; color: rgba(85, 12, 12, 0.974);}
-.titelB{font-size:20px; color: rgba(85, 12, 12, 0.974);}
 
 
 
 
-.menuLaptop a{font-family: 'Inter';font-style: normal;font-weight: 500;font-size: 20px;line-height: 150%;
-/* identical to box height, or 30px */
-display: flex;align-items: center;color: #FFFFFF;z-index:100;}
+
 
 
 
 
 }
-

@@ -7,9 +7,11 @@
 /* huidige pagina */
 .home-image1{background-image: url('../../static/img/home1.jpg');}
 .home-image2{background-image: url('../../static/img/home2.jpg');}
-.home-image3{background-image: url('../../static/img/home3.jpg');background-position: center 100%; outline: 0px solid black; /* debug */}
-
+.home-image3{background-image: url('../../static/img/home3.jpg');background-position: center 100%; outline: 3px solid black; /* debug */}
 /* huidige pagina */
+
+.section3{background-color:inherit;display:none;}
+
 </style>
 {% endblock %}
 <!---//HEAD---->
@@ -18,8 +20,8 @@
 
 <!----SECTION------>
  {% block section1 %} 
- <!---->
-<div class = "container">
+<!---->
+<div class = "container full-height">
     <div class = "home home-image1"></div> 
 
     <div class = "home">
@@ -52,13 +54,12 @@
     <div class = "home">
         <div class = "tekst-A">Persoonlijk & transparant</div>
         <div class = "tekst-B"> Geen verrassingen achteraf. Wij communiceren helder, geven eerlijk advies en maken vooraf 
-            duidelijke afspraken over kosten en planning. Zo weet u precies waar u aan toe bent.      
-        </div>
+            duidelijke afspraken over kosten en planning. Zo weet u precies waar u aan toe bent. </div>
         <a href = "/contact.html"> <div class ="btn_index1"> Offerte </div> </a>
     </div>
 </div>
 <!---->
-{% endblock %}
+ {% endblock %}   
 <!--//SECTION------>
 
 <!----SECTION------>
@@ -87,21 +88,3 @@
 </div>
 {% endblock %}   
 <!--//SECTION------>
-
-
-
-<!----SECTION------>
-{% block section3 %} 
-{% include "hulpcontact.html" %} 
-{% endblock %}   
-<!--//SECTION------>
-
-
-<!-------JAVASCRIPT---->
-{% block javascript %}
-<script src = "{% static 'js/eigenontwerp/recentie.js' %}" type= "text/javascript"></script>
-
-<script>
-</script>
-{% endblock %}   
-<!--//-----JAVASCRIPT---->

@@ -31,5 +31,5 @@ class Portfolio (models.Model):
     return str(self.naam)
   
   def get_absolute_url(self):
-        return reverse("DetailFoli_url", kwargs={"pk": self.pk})
+        return reversed("DetailFoli_url", kwargs={"pk": self.pk})
 #### // FOTOPORTFOLIOR### 

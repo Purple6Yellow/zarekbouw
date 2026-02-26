@@ -12,8 +12,8 @@ class ContactForm(forms.ModelForm):
             'email':'Email',
             'bericht': 'Bericht',}
         widgets = {
-            'naam':forms.TextInput(attrs={'class':'form_eigenA', 'placeholder':'Naam', 'id': '',}),
-            'email':forms.TextInput(attrs={'class':'form_eigenA', 'placeholder':'Email', 'id': '',}),
+            'naam':forms.TextInput(attrs={'class':'form_eigenA1', 'placeholder':'Naam', 'id': '',}),
+            'email':forms.TextInput(attrs={'class':'form_eigenA2', 'placeholder':'Email', 'id': '',}),
             'bericht':forms.TextInput(attrs={'class':'form_eigenB', 'placeholder':'Stel hier uw vraag of opmerking.', 'id': '',}),}
 
 

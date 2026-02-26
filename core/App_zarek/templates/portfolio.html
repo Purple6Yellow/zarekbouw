@@ -4,15 +4,9 @@
 <!-----HEAD---->
 {% block styles %}<style>
 
-/* ---PORTFOLIO---------laptop--------------------*/
-
-.dienst{display:flex;flex-direction:column;background-color:inherit;overflow:hidden;max-height:300px;}
-.port1{background-color:inherit;width:98%; margin:0 2% 0 0; height:50%;border-radius:40px 0 0 0;}
-.port2{background-color:inherit;width:98%; margin:0 0% 2% 2%; height:50%;border-radius:0px 0 40px 0px;}
-
-.dienst img{width:100%;height:100%;object-fit:cover;object-position: right center;}
-
-/* -//PORTFOLIO---------laptop--------------------*/
+/*   huidige pagina */
+.section3{display:none;}
+/* //huidige pagina */
 .h-25{background-color:inherit;}
 
 </style>{% endblock %}
@@ -34,8 +28,7 @@
 <!---->
  {% for foli in folis %}
 <div class = "container">
-
-    <div class = "row2">
+    <div class = "row1">
         <div class = "col-6 dienst port1">
              <a href="{% url 'DetailFoli_url' foli.pk %}"> <img src="{{ foli.afbeeld1.url }}" alt="in construction"> </a>
         </div>

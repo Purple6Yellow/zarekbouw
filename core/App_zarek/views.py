@@ -3,15 +3,22 @@ from .forms import ContactForm
 from .models import *
 ######## mail verzenden #########
 from django.core.mail import EmailMessage
-from django.views.generic import ListView, DetailView
-from django.shortcuts import render ### slideshow portfolio_detail
+from django.views.generic import ListView, DetailView, FormView
+from django.shortcuts import render, redirect ### slideshow portfolio_detail
 from django.db.models.fields.files import ImageField
+
 
 # ALGEMEEN
 def index_view(request):
-  return render(request, 'index.html') # volgens mij nodig voor algemene url
+  contact_form = ContactForm()
+  return render(request, 'index.html', {"contact_form": contact_form})  # volgens mij nodig voor algemene url
 def diensten_view(request):
   return render(request, 'diensten.html') 
+def contact_view(request):
+  contact_form = ContactForm()
+  return render(request, 'contact.html', {"contact_form": contact_form}) 
+def test_view(request):
+  return render(request, 'test.html') 
 
 ### -- PORTFOLIO -- ### 
 class OverzichtFoli(ListView):
@@ -52,7 +59,7 @@ class FoliListView(OverzichtFoli):
     template_name = "portfolio.html"
 
 class FoliCardView(OverzichtFoli):
-    template_name = "index.html"
+    template_name = "test.html"
 
     def get_queryset(self):
       qs = Portfolio.objects.order_by('created_by')[:1]
@@ -66,8 +73,12 @@ class FoliCardView(OverzichtFoli):
 ### -- PORTFOLIO -- ### 
 
 
+
+
+
+
 ### CONTACTFORMULIER ###
-def contact_view (request):
+def hulpcontact_view (request):
   print("contactpagina")
   # INFORMATIE # 
   onderwerp = "Email via website Zarekbouw"
@@ -91,6 +102,69 @@ def contact_view (request):
   else:
     contact_form = ContactForm()
     pass
-  return render(request, 'contact.html', {'contact_form':  contact_form})  
+  return render(request, 'hulpcontact.html', {'contact_form':  contact_form})  
 ### //CONTACTFORMULIER ###
 
+
+
+
+
+
+### VERWIJDEREN ###
+
+
+class OverzichtContact(ListView):
+    model = Contact
+    context_object_name = "contact_form"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        qs = context ["object_list"]
+        context["image_urls"] = list(qs.values_list("afbeeld1", flat = True))
+
+        return context
+
+class ContactListView(OverzichtContact):
+    template_name = "hulpcontact.html"
+
+class ContactCardView(OverzichtContact):
+    template_name = "index.html"
+
+    def get_queryset(self):
+      qs = Contact.objects.all()
+      return qs
+    
+
+
+
+### CONTACTFORMULIER ###
+def contact_versturen (request):
+  print("contactpagina")
+  # INFORMATIE # 
+  onderwerp = "Email via website ZB"
+  #// INFORMATIE # 
+  if request.method == "POST":
+      contact_form = ContactForm(request.POST)
+      if contact_form.is_valid():
+        contact_form.save() # opslaan in admin omgeving
+        #EMAIL VERZENDEN#
+        email = EmailMessage(
+          subject = onderwerp,
+          body = contact_form.mail_cf(),
+          from_email = '',
+          to = [''],
+          bcc= [''])
+        email.send(fail_silently = False) # op True zetten bij productie 
+        print("email verzonden")
+        return redirect('contact.html') + "?submitted=true"
+        #//EMAIL VERZENDEN#
+  return redirect('contact.html') + "?submitted=true"
+
+def Template1 (request):
+  contact_form = ContactForm()
+  return render(request, "index.html", {"contact_form": contact_form})
+def Template2(request):
+  contact_form  = ContactForm()
+  return render(request, "contact.html", {"contact_form": contact_form})
+### //CONTACTFORMULIER ###
