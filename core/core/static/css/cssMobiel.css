@@ -7,15 +7,15 @@ body{will-change: transform;
 .colorB{color:#0C3440;}
 .colorC{color:#F8F5F0;}
 /* --BASIS NAVIBAR */
-.achtergrond-navbar{display:flex;flex-direction:column;gap:24px; padding:23px 107px;
-    background-size:cover;background-position: 25% 100%;align-items:center;position:relative;}
+.achtergrond-navbar{display:flex;flex-direction:column;gap:24px; padding:23px 107px;width:100%;
+    background-size:cover;background-position: 25% 100%;align-items:center;position:relative;background-color:inherit;}
 .achtergrond-navbar .frame-nav-bar{display:flex;flex-direction:column;max-width:1440px;align-items: center;justify-items: center;
     gap:10px;padding:11px 30px; position:relative;width:100%; flex: 0 0 auto; background-color:#598987;border-radius: 50px;
     overflow:hidden;  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);}
 .achtergrond-navbar .nav-bar{display:flex;align-items: center;justify-content: space-between;position:relative;
-    align-self: stretch;width:100%;flex: 0 0 auto;}
-.achtergrond-navbar .group{position: relative; width: 145px; height:47px; box-shadow: 0px 4px 4px #00000040;
-    background-image: url('../../static/img/logo.png');background-size:cover;background-position: 50% 50%;}
+    align-self: stretch;width:100%;flex: 0 0 auto;background-color:inherit;}
+.achtergrond-navbar .group{position: relative; width: 25%;height:47px; box-shadow: 0px 4px 4px #00000040;
+    background-image: url('../../static/img/logo.png');background-size:cover;background-position: 50% 50%;border-radius:50px;}
 .achtergrond-navbar .frame{align-items: center;gap:40px;display:inline-flex;position:relative;flex: 0 0 auto;}
 .achtergrond-navbar .div{align-items: flex-end;gap:24px;display:inline-flex;position:relative;flex: 0 0 auto;}
 .achtergrond-navbar .text-wrapper{position:relative; width:fit-content;margin: top -1px;font-family: "Inter", Helvetica; 
