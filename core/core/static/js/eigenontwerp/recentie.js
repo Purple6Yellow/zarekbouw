@@ -3,7 +3,7 @@ console.log("recentie.js geopend")
 const track = document.querySelector('.track');
 const items = document.querySelectorAll('.item');
 
-const slideWidth = 500;
+const slideWidth = 700;
 const originalCount = items.length / 2; // omdat we dupliceren
 let index = 0;
 

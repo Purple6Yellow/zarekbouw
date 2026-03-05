@@ -4,17 +4,16 @@
 <!----HEAD---->
 {% block styles %}
 <style>
-.section1{display:none;}
+.section1, .section2, .section4{display:none;}
 </style>
 {% endblock %}
 <!---//HEAD---->
 <!---------------------------------------BODY------------------------------------------------------------------------------------------->
 
-<!----SECTION------>
- {% block section0 %}  
-        <div class = "tekst-Z" style = "margin: 2% 0 10% 0;">Stuur ons een bericht </div>
-  {% endblock %}   
-<!--//SECTION------>
+{% block titel %} Stuur een bericht {% endblock %}
+
+ 
+
 <!----SECTION------>
 {% block section3 %} 
 {% include "hulpcontact.html" %} 

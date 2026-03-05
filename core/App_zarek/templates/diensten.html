@@ -5,7 +5,7 @@
 {% block styles %}
 <style>
 /*   huidige pagina */
-.section3{display:none;}
+.section3, .section4{display:none;}
 .home-image1{background-image: url('../../static/img/dienst_1.jpeg');}
 .home-image2{background-image: url('../../static/img/dienst_2.jpeg');}
 .home-image3{background-image: url('../../static/img/dienst_3.jpeg');}
@@ -16,6 +16,10 @@
 {% endblock %}
 <!---//HEAD---->
 <!---------------------------------------BODY------------------------------------------------------------------------------------------->
+
+{% block titel %}  Onze diensten {% endblock %}
+
+
 <!----SECTION------>
 {% block section0 %}  
     <div class = "tekst-Z" style = "margin: 2% 0 10% 0;">Onze diensten</div>

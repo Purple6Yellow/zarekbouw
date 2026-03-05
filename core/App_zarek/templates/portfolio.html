@@ -3,37 +3,32 @@
 
 <!-----HEAD---->
 {% block styles %}<style>
-
 /*   huidige pagina */
-.section3{display:none;}
+.section1, .section2, .section3{display:none;}
 /* //huidige pagina */
 .h-25{background-color:inherit;}
+
+
+
+
 
 </style>{% endblock %}
 <!---//HEAD---->
 <!---------------------------------------BODY------------------------------------------------------------------------------------------->
+{% block titel %}  Impressie van onze projecten {% endblock %}
 
 
-<!----SECTION------>
- {% block section0 %}  
-        <div class = "tekst-Z" style = "margin: 2% 0 10% 0;">Impressie van onze projecten</div>
-  {% endblock %}   
-<!--//SECTION------>
 <!----SECTION------>
 {% block section4 %}
-{% endblock %}   
-<!--//SECTION------>
-<!----SECTION------>
-{% block section1 %}
 <!---->
  {% for foli in folis %}
-<div class = "container">
+<div class = "container_portfolio">
     <div class = "row1">
-        <div class = "col-6 dienst port1">
+        <div class = "dienst port1">
              <a href="{% url 'DetailFoli_url' foli.pk %}"> <img src="{{ foli.afbeeld1.url }}" alt="in construction"> </a>
         </div>
 
-        <div class = "col-6 dienst port2">
+        <div class = "dienst port2">
             <a href="{% url 'DetailFoli_url' foli.pk %}"> <img src="{{ foli.afbeeld2.url }}" alt="in construction"> </a>
         </div>
     </div>
