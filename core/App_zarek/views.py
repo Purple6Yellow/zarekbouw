@@ -19,6 +19,8 @@ def contact_view(request):
   return render(request, 'contact.html', {"contact_form": contact_form}) 
 def test_view(request):
   return render(request, 'test.html') 
+def privacypolicy_view(request):
+  return render(request, 'privacypolicy.html') 
 
 ### -- PORTFOLIO -- ### 
 class OverzichtFoli(ListView):

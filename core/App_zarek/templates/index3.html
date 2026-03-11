@@ -201,6 +201,108 @@ function moveSlide() {
 setInterval(moveSlide, 3000);
 </script>
     
+
+<script> 
+    document.body.style.backgroundColor = "purple";
+    document.querySelector(".U1").style.color = "black";
+    document.querySelector("#U1").style.backgroundColor = "white";
+    document.querySelector(".U1").style.transition = "transform 0.8s ease-in-out";
+    document.querySelector(".U1").style.transform = "translateX(-200%)";
+    
+
+</script>
+
+
+<script>
+console.log("java op index.html")
+
+document.querySelector("#U2").style.opacity = "0";
+document.querySelector("#U3").style.opacity = "0";
+document.querySelector("#U1").style.opacity = "1";
+document.querySelector(".U1").style.transition = "transform 0.8s ease-in-out";
+document.querySelector(".U1").style.transform = "translateX(-200%)";
+document.querySelector("#U2").style.opacity = "1";
+document.querySelector("#U3").style.opacity = "0";
+
+
+function moveSlide(){
+
+
+    document.querySelector(".U2").style.display= "block";}
+  
+
+setInterval(moveSlide, 3000);
+
+</script>
 {% endblock %}   
 <!--//-----JAVASCRIPT---->
+
+ <script>
+
+const blok1 = document.querySelector("#U1");
+const blok2 = document.querySelector(".U2");
+const blok3 = document.querySelector(".U3");
+
+function wacht(ms){
+  return new Promise(resolve => setTimeout(resolve, ms));}
+
+async function animatie(){
+    blok1.style.display = "flex";
+    blok1.style.transition = "transform 0.8s ease-in-out";
+    blok1.style.transform = "translateX(-1000px)";
+    await wacht(500); // seconde
+    blok1.style.transition = "transform 0.8s ease-in-out";
+    blok1.style.transform = "translateX(-2000px)";
+    blok2.style.display = "flex";
+    blok2.style.transition = "transform 0.8s ease-in-out";
+    blok2.style.transform = "translateX(-1000px)";
+    await wacht(1000); // seconde
+    blok2.style.transition = "transform 0.8s ease-in-out";
+    blok2.style.transform = "translateX(-2000px)";
+    blok3.style.display = "flex";
+    blok3.style.transition = "transform 0.8s ease-in-out";
+    blok3.style.transform = "translateX(-1000px)";
+    await wacht(1000); // seconde
+    blok3.style.transition = "transform 0.8s ease-in-out";
+    blok3.style.transform = "translateX(-2000px)";      
+}
+
+animatie();
+
+
+
+
+
+startAnimatie();
+
+
+
+const blok1 = document.querySelector(".U1");
+const blok2= document.querySelector(".U2");
+
+
+setInterval(() => {
+    
+    blok1.style.display = "flex";
+
+   setTimeout(()=>{
+    blok1.style.transition = "transform 0.8s ease-in-out";
+    blok1.style.transform = "translateX(-1000px)";
+    blok1.style.transition = "transform 0.8s ease-in-out";
+    blok1.style.transform = "translateX(-2000px)";
+    },1000);
+
+    
+}, 2000);
+
+</script>
+
+
+setTimeout(()=>{
+  blok1.classList.add("verander");
+  blok1.classList.add("verander2");
+  blok2.classList.add("verander");
+  blok2.classList.add("verander2");
+},1000);
+
 

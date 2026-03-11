@@ -9,6 +9,7 @@ urlpatterns = [
     ### DEFENITIEF### 
 
     path('index.html/', index_view),    
+    path('privacypolicy.html/', privacypolicy_view),  
     path('diensten.html/', diensten_view),
     path('contact.html/', contact_view), 
     path('test.html/', test_view),
