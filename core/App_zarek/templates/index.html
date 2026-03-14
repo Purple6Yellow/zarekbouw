@@ -5,7 +5,7 @@
 {% block styles %}
 <style>
 /* huidige pagina */
-.section4, .section2{display:none;}
+.section4, .section{display:none;}
 .home-image1{background-image: url('../../static/img/home1.jpg');}
 .home-image2{background-image: url('../../static/img/home2.jpg');}
 .home-image3{background-image: url('../../static/img/home3.jpg');background-position: center 100%; outline: 0px solid black; /* debug */}
@@ -15,8 +15,8 @@
 .container_carousel{position:relative;}
 .vlak {position:absolute;width: 60%;margin:0 0 0 20%; height:300px;transition: all 1s;}
 .U1{align-items:center;text-align: center;background-color:green ;display:flex;left:0px; z-index:1;opacity:1;}
-.U2{align-items:center;text-align: center;background-color: purple ;display:flex;left:0px;z-index:2;opacity:0;}
-.U3{align-items:center;text-align: center;background-color:red;display:flex;left:0px;z-index:3;opacity:0;}
+.U2{align-items:center;text-align: center;background-color: purple ;display:flex;left:0px;z-index:2;opacity:1;}
+.U3{align-items:center;text-align: center;background-color:red;display:flex;left:0px;z-index:3;opacity:1;}
 
 
 .verander{animation: beweeg 10s;opacity:1;}
@@ -168,7 +168,7 @@
 
 
 <!----SECTION------>
-{% block section2 %} 
+{% block section2dfgdsg %} 
 <div class = "container_carousel"> 
     <div class="vlak U1" id="U1">“Zarek Bouw voert al jarenlang onderhoudswerkzaamheden uit voor 
         Stichting Behoud Waardevol Erfgoed, van funderingsherstel tot schilderwerk. 
@@ -210,11 +210,14 @@ async function Carousel(){
     document.querySelector("#U3").classList.add("leesbaar"); 
     await sleep (1000);
     document.querySelector("#U3").classList.add("verander");
+    await sleep (10000);
     document.querySelector("#U3").classList.add("verberg"); 
-
+    document.querySelector("#U1").classList.remove("verander");
+    document.querySelector("#U2").classList.remove("verander verberg leesbaar");
+    document.querySelector("#U3").classList.remove("verander verberg leesbaar");
 } 
-
-    setInterval(Carousel, 1000 ); // elke 10 sec
+setInterval(Carousel, 1000 ); // elke 10 sec
+console.log("wordt het herhaald?")
 
 
 

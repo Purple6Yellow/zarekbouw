@@ -18,14 +18,14 @@
     background: linear-gradient(91.21deg, #850305 20.69%, #990507 56.38%);align-items: center;position:relative;}
 .achtergrond-navbar .text-wrapper-2{position:relative; width:fit-content;margin: top -1px;font-family: "Inter", Helvetica;
     font-weight: 400;color:#F8F5F0; font-size:20px; text-align: center; letter-spacing: 0; line-height:normal;white-space:nowrap;}
-.achtergrond-navbar .text-wrapper-3{position:relative;display:flex; align-items:center; justify-content:center; width:100%;font-family: "Inter", Helvetica;
-    font-weight: 900;color:#0C3440; font-size:60px; text-align: center; letter-spacing: 0; line-height:normal;}
 /* //BASIS NAVIBAR */
 /* --BASIS MENU */
 .menu_laptop{display:flex;}
 .menu_mobiel{display:none;}
 /* //BASIS MENU */
 /* --BASIS & TEMPLATES */
+.titel{position:relative;display:flex; align-items:center; justify-content:center; width:100%;font-family: "Inter", Helvetica;
+    font-weight: 900;color:#0C3440; font-size:60px; text-align: center; letter-spacing: 0; line-height:normal;}
 .section1{background-color: #F8F5F0; border-radius:40px;margin:2% 2% 2% 0%;width:100%;padding:0% 0 0 0;min-height:100px;}
 .section2{background-color: inherit; width:100%;padding:0% 0 0 0;min-height:100px;}
 .section3{background-color: #F8F5F0; border-radius:40px;margin:2% 0% 0% 10%;width:80%;padding:0% 0 0 0%;min-height:300px}
