@@ -267,3 +267,35 @@ function showNext() {
 </script>
 {% endblock %}
 <!-----//JAVASCRIPT---->
+
+<script>
+function sleep(ms){
+    return new Promise(resolve => setTimeout(resolve, ms));}
+
+
+async function Carousel(){
+    document.querySelector("#U1").classList.add("leesbaar");
+    document.querySelector("#U1").classList.add("verander");   
+    await sleep (10000);
+    document.querySelector("#U1").classList.add("verberg"); 
+    document.querySelector("#U2").classList.add("leesbaar");
+    await sleep (1000);
+    document.querySelector("#U2").classList.add("verander");
+    await sleep (10000);
+    document.querySelector("#U2").classList.add("verberg"); 
+    document.querySelector("#U3").classList.add("leesbaar"); 
+    await sleep (1000);
+    document.querySelector("#U3").classList.add("verander");
+    await sleep (10000);
+    document.querySelector("#U3").classList.add("verberg"); 
+    document.querySelector("#U3").classList.remove("verberg"); 
+    document.querySelector("#U1").classList.remove("verander");
+    document.querySelector("#U2").classList.remove("verander verberg leesbaar");
+    document.querySelector("#U3").classList.remove("verander verberg leesbaar");
+} 
+setInterval(Carousel, 1000 ); // elke 10 sec
+console.log("wordt het herhaald?")
+
+
+
+</script>

@@ -11,70 +11,32 @@
 .home-image3{background-image: url('../../static/img/home3.jpg');background-position: center 100%; outline: 0px solid black; /* debug */}
 /* huidige pagina */
 
-
-.container_carousel{position:relative;}
-.vlak {position:absolute;width: 60%;margin:0 0 0 20%; height:300px;transition: all 1s;}
-.U1{align-items:center;text-align: center;background-color:green ;display:flex;left:0px; z-index:1;opacity:1;}
-.U2{align-items:center;text-align: center;background-color: purple ;display:flex;left:0px;z-index:2;opacity:1;}
-.U3{align-items:center;text-align: center;background-color:red;display:flex;left:0px;z-index:3;opacity:1;}
-
-
-.verander{animation: beweeg 10s;opacity:1;}
-
-@keyframes beweeg{
-  0% {background-color:yellow;}
-  50% {background-color:red;}
-  100% {transform:translateX(1000px); }
-}
-.leesbaar{opacity:1;}
-.verberg{opacity:0;transform: translateX(-1000px);transition:none;}
-.reset{transform: translateX(-1000px);transition:none;}
-
-
-
-.verander2{transition: left 0.8s ease-in,;left:1000px;}
-.verander15{position:relative; left: 1000px;}
-.verander3.show{
-    opacity:1;transform:translateX(0);
-
+.carousel {
+  width: 100%;
+  overflow: hidden;
 }
 
-.blok{
-  width:100px;  
-  height:100px;
-  background:red;
-  position:relative;
-
-  /*animation: beweeg 3s infinite;*/
+.track {
+  display: flex;
+  transition: transform 0.8s ease;
+  
 }
 
+.item {
+  min-width: 300px;
+  width: 20%; margin: 10% 10% 10% 10%;
+  height: 200px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+}
 
-
-
-
-.verander3{opacity:1;transform: translateX(1000px);transition: all 0.4s ease;}
-.verander4{opacity:0;transform: translateX(-1000px);transition: opacity 0.4s ease, transform 0.8s ease 0.4s;}
-.verander5{opacity:1;transform: translateX(1000px);transition: all 1.0s ease;}
-
-.rechtsafsaf {transform: translateX(1000px);transition: all 0.4s ease;}
-
-.rechts{left:1000px;}
-.links{left:-1000px;}
-.opa_onzi{opacity:0;}
-.opa_zi{opacity:1}
-.midden{left:0px;}
-
-
-
-
-
-
-
-
-
-
-
-
+#U1 { background: red; }
+#U2 { background: blue; }
+#U3 { background: green; }
 
 
 
@@ -132,15 +94,15 @@
 <!--//SECTION------>
 
 <!----SECTION------>
-{% block section231231232132 %}   
+{% block section2345345 %}   
 <div class="carousel">
   <div class="track">
-    <div class="item">“Zarek Bouw voert al jarenlang onderhoudswerkzaamheden uit voor 
+    <div class="item" id="U1">“Zarek Bouw voert al jarenlang onderhoudswerkzaamheden uit voor 
             Stichting Behoud Waardevol Erfgoed, van funderingsherstel tot schilderwerk. 
             We zijn ontzettend blij met de resulaten en de samenwerking” <br> <br> - Sebastiaan Verspuij -  </div>
-    <div class="item"> “Onze oude badkamer is geheel vernieuwd door Zarek Bouw. Daar zijn we super blij mee
+    <div class="item" id="U2"> “Onze oude badkamer is geheel vernieuwd door Zarek Bouw. Daar zijn we super blij mee
                 De eigenaar werkt fijn samen en denkt creatief mee” <br><br> <br> - Violette Kamper - </div>
-    <div class="item">   “Ik ben heel tevreden met mijn nieuwe keuken. Communcitie & samenwerking was zeer goed. 
+    <div class="item" id = "U3">   “Ik ben heel tevreden met mijn nieuwe keuken. Communcitie & samenwerking was zeer goed. 
                 Zarek Bouw denkt graag mee met de oplossingen 
                 ” <br><br> <br> - France de Bieville -</div>
 
@@ -168,7 +130,7 @@
 
 
 <!----SECTION------>
-{% block section2dfgdsg %} 
+{% block section24309 %} 
 <div class = "container_carousel"> 
     <div class="vlak U1" id="U1">“Zarek Bouw voert al jarenlang onderhoudswerkzaamheden uit voor 
         Stichting Behoud Waardevol Erfgoed, van funderingsherstel tot schilderwerk. 
@@ -193,34 +155,22 @@
 
 
 <script>
-function sleep(ms){
-    return new Promise(resolve => setTimeout(resolve, ms));}
+const track = document.querySelector(".track");
+const slides = document.querySelectorAll(".item");
 
+let index = 0;
 
-async function Carousel(){
-    document.querySelector("#U1").classList.add("leesbaar");
-    document.querySelector("#U1").classList.add("verander");   
-    await sleep (10000);
-    document.querySelector("#U1").classList.add("verberg"); 
-    document.querySelector("#U2").classList.add("leesbaar");
-    await sleep (1000);
-    document.querySelector("#U2").classList.add("verander");
-    await sleep (10000);
-    document.querySelector("#U2").classList.add("verberg"); 
-    document.querySelector("#U3").classList.add("leesbaar"); 
-    await sleep (1000);
-    document.querySelector("#U3").classList.add("verander");
-    await sleep (10000);
-    document.querySelector("#U3").classList.add("verberg"); 
-    document.querySelector("#U1").classList.remove("verander");
-    document.querySelector("#U2").classList.remove("verander verberg leesbaar");
-    document.querySelector("#U3").classList.remove("verander verberg leesbaar");
-} 
-setInterval(Carousel, 1000 ); // elke 10 sec
-console.log("wordt het herhaald?")
+function moveCarousel() {
+  index++;
+  if (index >= slides.length) {
+    index = 0;
+  }
 
+  track.style.transform = `translateX(-${index * 300}px)`;
+}
 
-
+// elke 3 seconden schuiven
+setInterval(moveCarousel, 3000);
 </script>
 
 
@@ -229,3 +179,4 @@ console.log("wordt het herhaald?")
 
 {% endblock %}   
 <!--//-----JAVASCRIPT---->
+
